@@ -1,6 +1,10 @@
 # Compiled class file
 *.class
 
+# Abstract syntax project generated
+createLanguage/fr.unice.si5.polytech.createlanguage.abstractsyntax.edit/
+createLanguage/fr.unice.si5.polytech.createlanguage.abstractsyntax.editor/
+
 # Log file
 *.log
 
