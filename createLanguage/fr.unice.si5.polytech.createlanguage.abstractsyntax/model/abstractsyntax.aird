@@ -3,6 +3,10 @@
   <viewpoint:DAnalysis uid="_FeupMG4QEeucldga4yZi4w" selectedViews="_GIXcEG4QEeucldga4yZi4w" version="14.1.0.201810161215">
     <semanticResources>abstractsyntax.ecore</semanticResources>
     <semanticResources>abstractsyntax.genmodel</semanticResources>
+    <semanticResources>../fr.unice.si5.polytech.createlanguage.concretesyntax/fr.unice.si5.polytech.createlanguage.concretesyntax/src/fr/unice/si5/polytech/CreateLanguage.xtext</semanticResources>
+    <semanticResources>platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore</semanticResources>
+    <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
+    <semanticResources>../fr.unice.si5.polytech.createlanguage.concretesyntax/fr.unice.si5.polytech.createlanguage.concretesyntax/src/fr/unice/si5/polytech/GenerateCreateLanguage.mwe2</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_GIXcEG4QEeucldga4yZi4w">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_GN41QG4QEeucldga4yZi4w" name="abstractsyntax" repPath="#_GKcfsG4QEeucldga4yZi4w">
