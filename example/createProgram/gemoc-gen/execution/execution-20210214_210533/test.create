@@ -1,0 +1,5 @@
+CreateProgram MyProg {
+	instructions {
+		GoForward
+	}
+}

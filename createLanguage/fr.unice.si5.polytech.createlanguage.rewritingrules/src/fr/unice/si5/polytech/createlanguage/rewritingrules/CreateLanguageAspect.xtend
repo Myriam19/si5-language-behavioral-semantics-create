@@ -22,7 +22,9 @@ class CreateProgramAspect {
 	
 	@Main
 	def void entryPoint(){
-		
+		for(Instruction i : _self.instructions){
+			i.execute()
+		}
 	}
 	
 }
@@ -45,6 +47,8 @@ class GoForwardAspect extends ActionAspect{
 	@Step
 	@OverrideAspectMethod
 	def void execute(){
-		CreateProgramAspect.controler.goForward();
+		while(true){
+			CreateProgramAspect.controler.goForward();
+		}
 	}
 }

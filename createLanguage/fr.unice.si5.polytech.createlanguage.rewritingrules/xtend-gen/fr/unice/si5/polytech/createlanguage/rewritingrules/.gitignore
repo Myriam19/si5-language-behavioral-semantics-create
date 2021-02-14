@@ -14,3 +14,16 @@
 /.InstructionAspect.java._trace
 /.InstructionAspectInstructionAspectContext.java._trace
 /.InstructionAspectInstructionAspectProperties.java._trace
+/.CreateLanguageAspect.xtendbin
+/ActionAspect.java
+/ActionAspectActionAspectContext.java
+/ActionAspectActionAspectProperties.java
+/CreateProgramAspect.java
+/CreateProgramAspectCreateProgramAspectContext.java
+/CreateProgramAspectCreateProgramAspectProperties.java
+/GoForwardAspect.java
+/GoForwardAspectGoForwardAspectContext.java
+/GoForwardAspectGoForwardAspectProperties.java
+/InstructionAspect.java
+/InstructionAspectInstructionAspectContext.java
+/InstructionAspectInstructionAspectProperties.java
