@@ -13,6 +13,11 @@ public abstract class InstructionAspect {
   @Abstract
   public static void execute(final Instruction _self) {
     final fr.unice.si5.polytech.createlanguage.rewritingrules.InstructionAspectInstructionAspectProperties _self_ = fr.unice.si5.polytech.createlanguage.rewritingrules.InstructionAspectInstructionAspectContext.getSelf(_self);
+    	// BeginInjectInto fr.unice.si5.polytech.createlanguage.rewritingrules.InstructionAspect#void execute() from fr.unice.si5.polytech.createlanguage.rewritingrules.ChoreographyAspect
+    		if (_self instanceof fr.unice.si5.polytech.createlanguage.abstractsyntax.Choreography){
+    			fr.unice.si5.polytech.createlanguage.rewritingrules.ChoreographyAspect.execute((fr.unice.si5.polytech.createlanguage.abstractsyntax.Choreography)_self);
+    		} else
+    		// EndInjectInto fr.unice.si5.polytech.createlanguage.rewritingrules.InstructionAspect#void execute() from fr.unice.si5.polytech.createlanguage.rewritingrules.ChoreographyAspect
     	// BeginInjectInto fr.unice.si5.polytech.createlanguage.rewritingrules.InstructionAspect#void execute() from fr.unice.si5.polytech.createlanguage.rewritingrules.ActionAspect
     		if (_self instanceof fr.unice.si5.polytech.createlanguage.abstractsyntax.Action){
     			fr.unice.si5.polytech.createlanguage.rewritingrules.ActionAspect.execute((fr.unice.si5.polytech.createlanguage.abstractsyntax.Action)_self);
@@ -23,6 +28,11 @@ public abstract class InstructionAspect {
     			fr.unice.si5.polytech.createlanguage.rewritingrules.GoForwardAspect.execute((fr.unice.si5.polytech.createlanguage.abstractsyntax.GoForward)_self);
     		} else
     		// EndInjectInto fr.unice.si5.polytech.createlanguage.rewritingrules.InstructionAspect#void execute() from fr.unice.si5.polytech.createlanguage.rewritingrules.GoForwardAspect
+    	// BeginInjectInto fr.unice.si5.polytech.createlanguage.rewritingrules.InstructionAspect#void execute() from fr.unice.si5.polytech.createlanguage.rewritingrules.FiniteChoreographyAspect
+    		if (_self instanceof fr.unice.si5.polytech.createlanguage.abstractsyntax.FiniteChoreography){
+    			fr.unice.si5.polytech.createlanguage.rewritingrules.FiniteChoreographyAspect.execute((fr.unice.si5.polytech.createlanguage.abstractsyntax.FiniteChoreography)_self);
+    		} else
+    		// EndInjectInto fr.unice.si5.polytech.createlanguage.rewritingrules.InstructionAspect#void execute() from fr.unice.si5.polytech.createlanguage.rewritingrules.FiniteChoreographyAspect
     // #DispatchPointCut_before# void execute()
     if (_self instanceof fr.unice.si5.polytech.createlanguage.abstractsyntax.Instruction){
     	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {

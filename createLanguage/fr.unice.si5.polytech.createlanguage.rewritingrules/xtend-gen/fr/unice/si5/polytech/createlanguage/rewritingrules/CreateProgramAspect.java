@@ -2,10 +2,10 @@ package fr.unice.si5.polytech.createlanguage.rewritingrules;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import fr.inria.diverse.k3.al.annotationprocessor.Main;
+import fr.unice.si5.polytech.createlanguage.abstractsyntax.Choreography;
 import fr.unice.si5.polytech.createlanguage.abstractsyntax.CreateProgram;
-import fr.unice.si5.polytech.createlanguage.abstractsyntax.Instruction;
+import fr.unice.si5.polytech.createlanguage.rewritingrules.ChoreographyAspect;
 import fr.unice.si5.polytech.createlanguage.rewritingrules.CreateProgramAspectCreateProgramAspectProperties;
-import fr.unice.si5.polytech.createlanguage.rewritingrules.InstructionAspect;
 import fr.univcotedazur.kairos.webots.polycreate.controler.PolyCreateControler;
 import org.eclipse.emf.common.util.EList;
 
@@ -27,9 +27,9 @@ public class CreateProgramAspect {
   }
   
   protected static void _privk3_entryPoint(final CreateProgramAspectCreateProgramAspectProperties _self_, final CreateProgram _self) {
-    EList<Instruction> _instructions = _self.getInstructions();
-    for (final Instruction i : _instructions) {
-      InstructionAspect.execute(i);
+    EList<Choreography> _choreographies = _self.getChoreographies();
+    for (final Choreography c : _choreographies) {
+      ChoreographyAspect.execute(c);
     }
   }
 }

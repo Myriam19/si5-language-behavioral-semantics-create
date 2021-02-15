@@ -1,5 +1,10 @@
-CreateProgram MyProg {
-	instructions {
-		GoForward
+CreateProgram prog1 {
+	choreographies {
+		FiniteChoreography test {
+			instructions {
+				GoForward
+			}
+		}
 	}
+	starting_choreo : test
 }

@@ -34,8 +34,8 @@ public class GoForwardAspect extends ActionAspect {
   }
   
   protected static void _privk3_execute(final GoForwardAspectGoForwardAspectProperties _self_, final GoForward _self) {
-    while (true) {
-      CreateProgramAspect.controler.goForward();
-    }
+    CreateProgramAspect.controler.goForward();
+    CreateProgramAspect.controler.passiveWait(2);
+    CreateProgramAspect.controler.step(CreateProgramAspect.controler.timestep);
   }
 }
