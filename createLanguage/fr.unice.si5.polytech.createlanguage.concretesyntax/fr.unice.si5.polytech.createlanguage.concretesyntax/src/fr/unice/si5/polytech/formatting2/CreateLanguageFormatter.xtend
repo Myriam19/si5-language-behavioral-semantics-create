@@ -16,7 +16,7 @@ class CreateLanguageFormatter extends AbstractFormatter2 {
 
 	def dispatch void format(CreateProgram createProgram, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (instruction : createProgram.instructions) {
+		for (instruction : createProgram.choreographies) {
 			instruction.format
 		}
 	}
