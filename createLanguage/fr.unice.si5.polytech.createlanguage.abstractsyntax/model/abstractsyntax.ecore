@@ -6,8 +6,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CreateProgram" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="instructions" upperBound="-1"
-        eType="#//Instruction" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="choreographies" lowerBound="1"
+        upperBound="-1" eType="#//Choreography" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="starting_choreo" lowerBound="1"
+        eType="#//Choreography"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Choreography" abstract="true" eSuperTypes="#//NamedElement #//Instruction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="interruptions" upperBound="-1"
@@ -26,5 +28,5 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Condition"/>
   <eClassifiers xsi:type="ecore:EClass" name="ObjectFound" eSuperTypes="#//Condition"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Instruction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Instruction" abstract="true"/>
 </ecore:EPackage>

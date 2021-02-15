@@ -9,7 +9,8 @@ CreateProgram returns CreateProgram:
 	'CreateProgram'
 	name=EString
 	'{'
-		('instructions' '{' instructions+=Instruction ( "," instructions+=Instruction)* '}' )?
+		('choreographies' '{' choreographies+=Choreography ( "," choreographies+=Choreography)* '}' )?
+		('starting_choreo' ':' starting_choreo=[Choreography|EString])
 	'}';
 
 Instruction returns Instruction:

@@ -16,7 +16,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//NamedElement/name"/>
     </genClasses>
     <genClasses ecoreClass="abstractsyntax.ecore#//CreateProgram">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstractsyntax.ecore#//CreateProgram/instructions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstractsyntax.ecore#//CreateProgram/choreographies"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference abstractsyntax.ecore#//CreateProgram/starting_choreo"/>
     </genClasses>
     <genClasses ecoreClass="abstractsyntax.ecore#//Choreography">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstractsyntax.ecore#//Choreography/interruptions"/>
