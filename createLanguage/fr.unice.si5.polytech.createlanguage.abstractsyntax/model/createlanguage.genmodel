@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/fr.unice.si5.polytech.createlanguage.abstractsyntax/src-gen"
+    creationIcons="false" editDirectory="/fr.unice.si5.polytech.createlanguage.abstractsyntax.edit/src-gen"
+    editorDirectory="/fr.unice.si5.polytech.createlanguage.abstractsyntax.editor/src-gen"
+    modelPluginID="fr.unice.si5.polytech.createlanguage.abstractsyntax" modelName="Createlanguage"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>createlanguage.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Createlanguage" basePackage="fr.unice.si5.polytech.createlanguage.abstractsyntax"
+      disposableProviderFactory="true" ecorePackage="createlanguage.ecore#/">
+    <genClasses image="false" ecoreClass="createlanguage.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute createlanguage.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="createlanguage.ecore#//CreateProgram">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference createlanguage.ecore#//CreateProgram/choreographies"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference createlanguage.ecore#//CreateProgram/starting_choreo"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="createlanguage.ecore#//Choreography">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference createlanguage.ecore#//Choreography/interruptions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference createlanguage.ecore#//Choreography/instructions"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="createlanguage.ecore#//Action"/>
+    <genClasses ecoreClass="createlanguage.ecore#//LoopChoreography"/>
+    <genClasses ecoreClass="createlanguage.ecore#//FiniteChoreography"/>
+    <genClasses ecoreClass="createlanguage.ecore#//GoForward"/>
+    <genClasses ecoreClass="createlanguage.ecore#//Interruption">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference createlanguage.ecore#//Interruption/conditions"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference createlanguage.ecore#//Interruption/choreography"/>
+    </genClasses>
+    <genClasses ecoreClass="createlanguage.ecore#//Condition"/>
+    <genClasses ecoreClass="createlanguage.ecore#//ObjectFound"/>
+    <genClasses image="false" ecoreClass="createlanguage.ecore#//Instruction"/>
+  </genPackages>
+</genmodel:GenModel>

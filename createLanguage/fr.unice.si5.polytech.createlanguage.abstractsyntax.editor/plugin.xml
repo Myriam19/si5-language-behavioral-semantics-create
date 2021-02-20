@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated createlanguage -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.presentation.CreatelanguageModelWizardID"
+            name="%_UI_CreatelanguageModelWizard_label"
+            class="fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.presentation.CreatelanguageModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/CreatelanguageModelFile.gif">
+         <description>%_UI_CreatelanguageModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated createlanguage -->
+      <editor
+            id="fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.presentation.CreatelanguageEditorID"
+            name="%_UI_CreatelanguageEditor_label"
+            icon="icons/full/obj16/CreatelanguageModelFile.gif"
+            extensions="createlanguage"
+            class="fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.presentation.CreatelanguageEditor"
+            contributorClass="fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.presentation.CreatelanguageActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
