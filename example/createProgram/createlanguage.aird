@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:createlanguage="http://www.example.org/createlanguage" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis uid="_Gfox4HPJEeuzPqHNXe9Pvg" selectedViews="_G_gkwHPJEeuzPqHNXe9Pvg" version="14.1.0.201810161215">
+    <semanticResources>test.create</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" uid="_G_gkwHPJEeuzPqHNXe9Pvg">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_HAuFsHPJEeuzPqHNXe9Pvg" name="program" repPath="#_G_sK8HPJEeuzPqHNXe9Pvg">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']"/>
+        <target xmi:type="createlanguage:CreateProgram" href="test.create#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram uid="_G_sK8HPJEeuzPqHNXe9Pvg" name="program">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_HAomIHPJEeuzPqHNXe9Pvg" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_HApNMHPJEeuzPqHNXe9Pvg"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_HA6S8HPJEeuzPqHNXe9Pvg" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_HA6S8XPJEeuzPqHNXe9Pvg" type="Sirius" element="_G_sK8HPJEeuzPqHNXe9Pvg" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_HBQRMHPJEeuzPqHNXe9Pvg" type="2003" element="_HAjGkHPJEeuzPqHNXe9Pvg">
+          <children xmi:type="notation:Node" xmi:id="_HBT7kHPJEeuzPqHNXe9Pvg" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_HBWX0HPJEeuzPqHNXe9Pvg" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_HBY0EHPJEeuzPqHNXe9Pvg" type="3010" element="_HAli0HPJEeuzPqHNXe9Pvg">
+              <styles xmi:type="notation:FontStyle" xmi:id="_HBY0EXPJEeuzPqHNXe9Pvg" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_HBY0EnPJEeuzPqHNXe9Pvg"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_uvjuQHPQEeuhz5fQYZAPVQ" type="3010" element="_uvIQcXPQEeuhz5fQYZAPVQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_uvjuQXPQEeuhz5fQYZAPVQ" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_uvjuQnPQEeuhz5fQYZAPVQ"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_uvkVUHPQEeuhz5fQYZAPVQ" visible="false" type="3010" element="_uvI3gHPQEeuhz5fQYZAPVQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_uvkVUXPQEeuhz5fQYZAPVQ" fontName="Segoe UI" fontHeight="12"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_uvkVUnPQEeuhz5fQYZAPVQ"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_uvk8YHPQEeuhz5fQYZAPVQ" visible="false" type="3010" element="_uvI3gnPQEeuhz5fQYZAPVQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_uvk8YXPQEeuhz5fQYZAPVQ" fontName="Segoe UI" fontHeight="12"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_uvk8YnPQEeuhz5fQYZAPVQ"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_HBWX0XPJEeuzPqHNXe9Pvg"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_HBWX0nPJEeuzPqHNXe9Pvg"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_HBQRMXPJEeuzPqHNXe9Pvg" fontName="Segoe UI" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HBQRMnPJEeuzPqHNXe9Pvg" width="159" height="165"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_uvUdsHPQEeuhz5fQYZAPVQ" type="2003" element="_uvEmEHPQEeuhz5fQYZAPVQ">
+          <children xmi:type="notation:Node" xmi:id="_uvdnoHPQEeuhz5fQYZAPVQ" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_uveOsHPQEeuhz5fQYZAPVQ" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_uvljcHPQEeuhz5fQYZAPVQ" type="3010" element="_uvGbQHPQEeuhz5fQYZAPVQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_uvljcXPQEeuhz5fQYZAPVQ" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_uvljcnPQEeuhz5fQYZAPVQ"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_uvmKgHPQEeuhz5fQYZAPVQ" type="3010" element="_uvHCUHPQEeuhz5fQYZAPVQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_uvmKgXPQEeuhz5fQYZAPVQ" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_uvmKgnPQEeuhz5fQYZAPVQ"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_uvmKg3PQEeuhz5fQYZAPVQ" visible="false" type="3010" element="_uvHCUXPQEeuhz5fQYZAPVQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_uvmKhHPQEeuhz5fQYZAPVQ" fontName="Segoe UI" fontHeight="12"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_uvmKhXPQEeuhz5fQYZAPVQ"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_uvmxkHPQEeuhz5fQYZAPVQ" visible="false" type="3010" element="_uvHpYXPQEeuhz5fQYZAPVQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_uvmxkXPQEeuhz5fQYZAPVQ" fontName="Segoe UI" fontHeight="12"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_uvmxknPQEeuhz5fQYZAPVQ"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_uveOsXPQEeuhz5fQYZAPVQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_uveOsnPQEeuhz5fQYZAPVQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_uvUdsXPQEeuhz5fQYZAPVQ" fontName="Segoe UI" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uvUdsnPQEeuhz5fQYZAPVQ" x="228" y="108" width="214" height="165"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_6w1u0HPQEeuhz5fQYZAPVQ" type="2001" element="_6wrWwHPQEeuhz5fQYZAPVQ">
+          <children xmi:type="notation:Node" xmi:id="_6w6nUHPQEeuhz5fQYZAPVQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_6w6nUXPQEeuhz5fQYZAPVQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_6xRMoHPQEeuhz5fQYZAPVQ" type="3005" element="_6wtzAHPQEeuhz5fQYZAPVQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_6xRMoXPQEeuhz5fQYZAPVQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6xRMonPQEeuhz5fQYZAPVQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_6w1u0XPQEeuhz5fQYZAPVQ" fontName="Segoe UI" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6w1u0nPQEeuhz5fQYZAPVQ" x="72" y="-126" width="32" height="32"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_6xOwYHPQEeuhz5fQYZAPVQ" type="2001" element="_6wvBIXPQEeuhz5fQYZAPVQ">
+          <children xmi:type="notation:Node" xmi:id="_6xPXcHPQEeuhz5fQYZAPVQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_6xPXcXPQEeuhz5fQYZAPVQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_6xRzsHPQEeuhz5fQYZAPVQ" type="3005" element="_6wvBInPQEeuhz5fQYZAPVQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_6xRzsXPQEeuhz5fQYZAPVQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6xRzsnPQEeuhz5fQYZAPVQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_6xOwYXPQEeuhz5fQYZAPVQ" fontName="Segoe UI" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6xOwYnPQEeuhz5fQYZAPVQ" x="96" y="-60" width="32" height="32"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_6xP-gHPQEeuhz5fQYZAPVQ" type="2001" element="_6wvoMHPQEeuhz5fQYZAPVQ">
+          <children xmi:type="notation:Node" xmi:id="_6xP-g3PQEeuhz5fQYZAPVQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_6xP-hHPQEeuhz5fQYZAPVQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_6xSawHPQEeuhz5fQYZAPVQ" type="3005" element="_6wvoMXPQEeuhz5fQYZAPVQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_6xSawXPQEeuhz5fQYZAPVQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6xSawnPQEeuhz5fQYZAPVQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_6xP-gXPQEeuhz5fQYZAPVQ" fontName="Segoe UI" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6xP-gnPQEeuhz5fQYZAPVQ" x="276" y="-60" width="32" height="32"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_6xQlkHPQEeuhz5fQYZAPVQ" type="2001" element="_6wvoM3PQEeuhz5fQYZAPVQ">
+          <children xmi:type="notation:Node" xmi:id="_6xQlk3PQEeuhz5fQYZAPVQ" type="5002">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_6xQllHPQEeuhz5fQYZAPVQ" y="5"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_6xTB0HPQEeuhz5fQYZAPVQ" type="3005" element="_6wvoNHPQEeuhz5fQYZAPVQ">
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_6xTB0XPQEeuhz5fQYZAPVQ" fontName="Segoe UI"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6xTB0nPQEeuhz5fQYZAPVQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_6xQlkXPQEeuhz5fQYZAPVQ" fontName="Segoe UI" fontHeight="12"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6xQlknPQEeuhz5fQYZAPVQ" x="336" width="32" height="32"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_HA6S8nPJEeuzPqHNXe9Pvg"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_HAjGkHPJEeuzPqHNXe9Pvg" name="test">
+      <target xmi:type="createlanguage:FiniteChoreography" href="test.create#//@choreographies.0"/>
+      <semanticElements xmi:type="createlanguage:FiniteChoreography" href="test.create#//@choreographies.0"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_HAjtoHPJEeuzPqHNXe9Pvg" labelSize="12" showIcon="false" borderSize="1" borderSizeComputationExpression="1" foregroundColor="204,242,166">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_HAli0HPJEeuzPqHNXe9Pvg" name="'instruction!!'">
+        <target xmi:type="createlanguage:GoForward" href="test.create#//@choreographies.0/@instructions.0"/>
+        <semanticElements xmi:type="createlanguage:GoForward" href="test.create#//@choreographies.0/@instructions.0"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_FOZLcHPUEeuoH8rUsjWQIw" labelSize="12" labelPosition="node">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']/@subNodeMappings[name='Instruction']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']/@subNodeMappings[name='Instruction']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_uvIQcXPQEeuhz5fQYZAPVQ" name="'instruction!!'">
+        <target xmi:type="createlanguage:GoForward" href="test.create#//@choreographies.0/@instructions.1"/>
+        <semanticElements xmi:type="createlanguage:GoForward" href="test.create#//@choreographies.0/@instructions.1"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_FOZygHPUEeuoH8rUsjWQIw" labelSize="12" labelPosition="node">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']/@subNodeMappings[name='Instruction']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']/@subNodeMappings[name='Instruction']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_uvI3gHPQEeuhz5fQYZAPVQ" visible="false">
+        <target xmi:type="createlanguage:GoForward" href="test.create#//@choreographies.0/@instructions.0"/>
+        <semanticElements xmi:type="createlanguage:GoForward" href="test.create#//@choreographies.0/@instructions.0"/>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_uvI3gXPQEeuhz5fQYZAPVQ" labelSize="12" showIcon="false" labelPosition="node" workspacePath="/fr.unice.si5.polytech.createlanguage.design/images/GoForward.svg">
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']/@subNodeMappings[name='GoForward']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']/@subNodeMappings[name='GoForward']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_uvI3gnPQEeuhz5fQYZAPVQ" visible="false">
+        <target xmi:type="createlanguage:GoForward" href="test.create#//@choreographies.0/@instructions.1"/>
+        <semanticElements xmi:type="createlanguage:GoForward" href="test.create#//@choreographies.0/@instructions.1"/>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_uvI3g3PQEeuhz5fQYZAPVQ" labelSize="12" showIcon="false" labelPosition="node" workspacePath="/fr.unice.si5.polytech.createlanguage.design/images/GoForward.svg">
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']/@subNodeMappings[name='GoForward']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']/@subNodeMappings[name='GoForward']"/>
+      </ownedElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_uvEmEHPQEeuhz5fQYZAPVQ" name="test1">
+      <target xmi:type="createlanguage:FiniteChoreography" href="test.create#//@choreographies.1"/>
+      <semanticElements xmi:type="createlanguage:FiniteChoreography" href="test.create#//@choreographies.1"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_uvFNIHPQEeuhz5fQYZAPVQ" labelSize="12" showIcon="false" borderSize="1" borderSizeComputationExpression="1" foregroundColor="204,242,166">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_uvGbQHPQEeuhz5fQYZAPVQ" name="'instruction!!'">
+        <target xmi:type="createlanguage:GoForward" href="test.create#//@choreographies.1/@instructions.0"/>
+        <semanticElements xmi:type="createlanguage:GoForward" href="test.create#//@choreographies.1/@instructions.0"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_FObnsHPUEeuoH8rUsjWQIw" labelSize="12" labelPosition="node">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']/@subNodeMappings[name='Instruction']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']/@subNodeMappings[name='Instruction']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_uvHCUHPQEeuhz5fQYZAPVQ" name="'instruction!!'">
+        <target xmi:type="createlanguage:GoForward" href="test.create#//@choreographies.1/@instructions.1"/>
+        <semanticElements xmi:type="createlanguage:GoForward" href="test.create#//@choreographies.1/@instructions.1"/>
+        <ownedStyle xmi:type="diagram:Square" uid="_FOcOwHPUEeuoH8rUsjWQIw" labelSize="12" labelPosition="node">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']/@subNodeMappings[name='Instruction']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']/@subNodeMappings[name='Instruction']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_uvHCUXPQEeuhz5fQYZAPVQ" visible="false">
+        <target xmi:type="createlanguage:GoForward" href="test.create#//@choreographies.1/@instructions.0"/>
+        <semanticElements xmi:type="createlanguage:GoForward" href="test.create#//@choreographies.1/@instructions.0"/>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_uvHpYHPQEeuhz5fQYZAPVQ" labelSize="12" showIcon="false" labelPosition="node" workspacePath="/fr.unice.si5.polytech.createlanguage.design/images/GoForward.svg">
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']/@subNodeMappings[name='GoForward']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']/@subNodeMappings[name='GoForward']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_uvHpYXPQEeuhz5fQYZAPVQ" visible="false">
+        <target xmi:type="createlanguage:GoForward" href="test.create#//@choreographies.1/@instructions.1"/>
+        <semanticElements xmi:type="createlanguage:GoForward" href="test.create#//@choreographies.1/@instructions.1"/>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_uvIQcHPQEeuhz5fQYZAPVQ" labelSize="12" showIcon="false" labelPosition="node" workspacePath="/fr.unice.si5.polytech.createlanguage.design/images/GoForward.svg">
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']/@subNodeMappings[name='GoForward']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']/@subNodeMappings[name='GoForward']"/>
+      </ownedElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_6wrWwHPQEeuhz5fQYZAPVQ" width="-1" height="-1" resizeKind="NSEW">
+      <target xmi:type="createlanguage:GoForward" href="test.create#//@choreographies.0/@instructions.0"/>
+      <semanticElements xmi:type="createlanguage:GoForward" href="test.create#//@choreographies.0/@instructions.0"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_6wtzAHPQEeuhz5fQYZAPVQ" labelSize="12" showIcon="false" labelPosition="node" workspacePath="/fr.unice.si5.polytech.createlanguage.design/images/GoForward.svg">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@nodeMappings[name='GoForward']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@nodeMappings[name='GoForward']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_6wvBIXPQEeuhz5fQYZAPVQ" width="-1" height="-1" resizeKind="NSEW">
+      <target xmi:type="createlanguage:GoForward" href="test.create#//@choreographies.0/@instructions.1"/>
+      <semanticElements xmi:type="createlanguage:GoForward" href="test.create#//@choreographies.0/@instructions.1"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_6wvBInPQEeuhz5fQYZAPVQ" labelSize="12" showIcon="false" labelPosition="node" workspacePath="/fr.unice.si5.polytech.createlanguage.design/images/GoForward.svg">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@nodeMappings[name='GoForward']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@nodeMappings[name='GoForward']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_6wvoMHPQEeuhz5fQYZAPVQ" width="-1" height="-1" resizeKind="NSEW">
+      <target xmi:type="createlanguage:GoForward" href="test.create#//@choreographies.1/@instructions.0"/>
+      <semanticElements xmi:type="createlanguage:GoForward" href="test.create#//@choreographies.1/@instructions.0"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_6wvoMXPQEeuhz5fQYZAPVQ" labelSize="12" showIcon="false" labelPosition="node" workspacePath="/fr.unice.si5.polytech.createlanguage.design/images/GoForward.svg">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@nodeMappings[name='GoForward']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@nodeMappings[name='GoForward']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNode" uid="_6wvoM3PQEeuhz5fQYZAPVQ" width="-1" height="-1" resizeKind="NSEW">
+      <target xmi:type="createlanguage:GoForward" href="test.create#//@choreographies.1/@instructions.1"/>
+      <semanticElements xmi:type="createlanguage:GoForward" href="test.create#//@choreographies.1/@instructions.1"/>
+      <ownedStyle xmi:type="diagram:WorkspaceImage" uid="_6wvoNHPQEeuhz5fQYZAPVQ" labelSize="12" showIcon="false" labelPosition="node" workspacePath="/fr.unice.si5.polytech.createlanguage.design/images/GoForward.svg">
+        <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@nodeMappings[name='GoForward']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@nodeMappings[name='GoForward']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_G_zfsHPJEeuzPqHNXe9Pvg"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/fr.unice.si5.polytech.createlanguage.design/description/createlanguage.odesign#//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer"/>
+    <target xmi:type="createlanguage:CreateProgram" href="test.create#/"/>
+  </diagram:DSemanticDiagram>
+</xmi:XMI>

@@ -2,9 +2,15 @@ CreateProgram prog1 {
 	choreographies {
 		FiniteChoreography test {
 			instructions {
-				GoForward
+				GoForward,GoForward
+			}
+		},
+		
+		FiniteChoreography test1 {
+			instructions {
+				GoForward,GoForward
 			}
 		}
 	}
-	starting_choreo : test
+	starting_choreo : test, test1
 }

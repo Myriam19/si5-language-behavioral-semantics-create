@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="createlanguage" version="12.0.0.2017041100">
+  <ownedViewpoints name="CreateLanguageViewpoint" modelFileExtension="*.create">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="program" initialisation="true" showOnStartup="true" domainClass="createlanguage::CreateProgram" enablePopupBars="true">
+      <metamodel href="../../fr.unice.si5.polytech.createlanguage.abstractsyntax/model/createlanguage.ecore#/"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="GoForward" semanticCandidatesExpression="feature:eAllContents" domainClass="GoForward">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/fr.unice.si5.polytech.createlanguage.design/images/GoForward.svg">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <containerMappings name="Choreography" semanticCandidatesExpression="feature:starting_choreo" domainClass="Choreography" childrenPresentation="List">
+          <subNodeMappings name="Instruction" semanticCandidatesExpression="feature:instructions" domainClass="Instruction">
+            <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+          </style>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+  </ownedViewpoints>
+</description:Group>
