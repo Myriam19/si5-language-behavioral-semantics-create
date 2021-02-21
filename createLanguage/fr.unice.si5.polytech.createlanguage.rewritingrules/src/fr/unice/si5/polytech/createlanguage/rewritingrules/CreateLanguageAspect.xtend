@@ -81,6 +81,37 @@ class GoForwardAspect extends ActionAspect{
 	}
 }
 
+@Aspect(className = GoBackward)
+class GoBackwardAspect extends ActionAspect{
+	@Step
+	@OverrideAspectMethod
+	def void execute(){
+		var time = 0 as int
+		if(_self.distance != -1){
+			time = _self.distance / PolyCreateControler.MAX_SPEED;
+		} else if(_self.duration != -1){
+			time = _self.duration;
+		}
+		CreateProgramAspect.controler.goBackward();
+		CreateProgramAspect.controler.passiveWait(time);
+		CreateProgramAspect.controler.flushIRReceiver();
+		CreateProgramAspect.controler.step(CreateProgramAspect.controler.timestep);
+	}
+}
+
+@Aspect(className = Stop)
+class StopAspect extends ActionAspect{
+	@Step
+	@OverrideAspectMethod
+	def void execute(){
+		var time = _self.duration as int;
+		CreateProgramAspect.controler.stop();
+		CreateProgramAspect.controler.passiveWait(time);
+		CreateProgramAspect.controler.flushIRReceiver();
+		CreateProgramAspect.controler.step(CreateProgramAspect.controler.timestep);
+	}
+}
+
 @Aspect(className = Rotate)
 class RotateAspect extends ActionAspect{
 	@Step
@@ -88,6 +119,58 @@ class RotateAspect extends ActionAspect{
 	def void execute(){
 		CreateProgramAspect.controler.turn(_self.angle as double * Math.PI / 180);
 		CreateProgramAspect.controler.passiveWait(0.5);
+		CreateProgramAspect.controler.flushIRReceiver();
+		CreateProgramAspect.controler.step(CreateProgramAspect.controler.timestep);
+	}
+}
+
+@Aspect(className = GrabInFront)
+class GrabInFrontAspect extends ActionAspect{
+	@Step
+	@OverrideAspectMethod
+	def void execute(){
+		
+		CreateProgramAspect.controler.stop();
+		CreateProgramAspect.controler.passiveWait(0.5);
+		
+		CreateProgramAspect.controler.openGripper();
+		CreateProgramAspect.controler.passiveWait(0.5);
+		
+		CreateProgramAspect.controler.goBackward();
+		CreateProgramAspect.controler.passiveWait(0.5);
+		
+		CreateProgramAspect.controler.stop();
+		CreateProgramAspect.controler.passiveWait(0.5);
+		
+		CreateProgramAspect.controler.closeGripper();
+		CreateProgramAspect.controler.passiveWait(0.5);
+		
+		CreateProgramAspect.controler.flushIRReceiver();
+		CreateProgramAspect.controler.step(CreateProgramAspect.controler.timestep);
+	}
+}
+
+@Aspect(className = ReleaseInFront)
+class ReleaseInFrontAspect extends ActionAspect{
+	@Step
+	@OverrideAspectMethod
+	def void execute(){
+		
+		CreateProgramAspect.controler.stop();
+		CreateProgramAspect.controler.passiveWait(0.5);
+		
+		CreateProgramAspect.controler.openGripper();
+		CreateProgramAspect.controler.passiveWait(0.5);
+		
+		CreateProgramAspect.controler.goForward();
+		CreateProgramAspect.controler.passiveWait(0.5);
+		
+		CreateProgramAspect.controler.stop();
+		CreateProgramAspect.controler.passiveWait(0.5);
+		
+		CreateProgramAspect.controler.closeGripper();
+		CreateProgramAspect.controler.passiveWait(0.5);
+		
 		CreateProgramAspect.controler.flushIRReceiver();
 		CreateProgramAspect.controler.step(CreateProgramAspect.controler.timestep);
 	}

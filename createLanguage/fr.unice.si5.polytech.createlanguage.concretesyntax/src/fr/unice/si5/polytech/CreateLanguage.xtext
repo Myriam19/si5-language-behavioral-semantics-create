@@ -20,7 +20,7 @@ Condition returns Condition:
 
 
 Instruction returns Instruction:
-	LoopChoreography | FiniteChoreography | GoForward | Rotate;
+	LoopChoreography | FiniteChoreography | GoForward | GoBackward | Rotate | Stop | GrabInFront | ReleaseInFront;
 
 EString returns ecore::EString:
 	STRING | ID;
@@ -66,10 +66,30 @@ GoForward returns GoForward:
 	'GoForward' (distance=Eint 'cm' | duration=Eint 's')
 	;
 	
+GoBackward returns GoBackward:
+	{GoBackward}
+	'GoBackward' (distance=Eint 'cm' | duration=Eint 's')
+	;
+	
+Stop returns Stop:
+	{Stop}
+	'Stop' duration=Eint 's'
+	;
+	
 Rotate returns Rotate:
 	{Rotate}
 	'Rotate' angle=Eint 'degrees'
 	;
+	
+GrabInFront returns GrabInFront:
+	{GrabInFront}
+	'GrabInFront'
+;
+	
+ReleaseInFront returns ReleaseInFront:
+	{ReleaseInFront}
+	'ReleaseInFront'
+;
 
 Eint returns ecore::EInt:
 	INT;

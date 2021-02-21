@@ -42,5 +42,14 @@
     <genClasses ecoreClass="createlanguage.ecore#//Rotate">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute createlanguage.ecore#//Rotate/angle"/>
     </genClasses>
+    <genClasses ecoreClass="createlanguage.ecore#//GoBackward">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute createlanguage.ecore#//GoBackward/distance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute createlanguage.ecore#//GoBackward/duration"/>
+    </genClasses>
+    <genClasses ecoreClass="createlanguage.ecore#//Stop">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute createlanguage.ecore#//Stop/duration"/>
+    </genClasses>
+    <genClasses ecoreClass="createlanguage.ecore#//GrabInFront"/>
+    <genClasses ecoreClass="createlanguage.ecore#//ReleaseInFront"/>
   </genPackages>
 </genmodel:GenModel>

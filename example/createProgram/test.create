@@ -8,9 +8,12 @@ CreateProgram prog1 {
 		
 		FiniteChoreography test1 {
 			instructions {
-				Rotate 180 degrees, GoForward 3 s
+				GrabInFront,
+				GoForward 3 s,
+				Rotate 180 degrees,
+				ReleaseInFront
 			}
 		}
 	}
-	starting_choreo : test1, test1, test1, test1, test1
+	starting_choreo : test1
 }
