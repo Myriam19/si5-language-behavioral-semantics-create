@@ -18,9 +18,17 @@
         eType="#//Instruction" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true" eSuperTypes="#//Instruction"/>
-  <eClassifiers xsi:type="ecore:EClass" name="LoopChoreography" eSuperTypes="#//Choreography"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LoopChoreography" eSuperTypes="#//Choreography">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outCondition" eType="#//Condition"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FiniteChoreography" eSuperTypes="#//Choreography"/>
-  <eClassifiers xsi:type="ecore:EClass" name="GoForward" eSuperTypes="#//Action"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GoForward" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="distance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="-1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="-1"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Interruption">
     <eStructuralFeatures xsi:type="ecore:EReference" name="conditions" upperBound="-1"
         eType="#//Condition" containment="true"/>
@@ -29,4 +37,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Condition"/>
   <eClassifiers xsi:type="ecore:EClass" name="ObjectFound" eSuperTypes="#//Condition"/>
   <eClassifiers xsi:type="ecore:EClass" name="Instruction" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Rotate" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="angle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
 </ecore:EPackage>

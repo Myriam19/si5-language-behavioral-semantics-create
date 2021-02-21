@@ -25,7 +25,7 @@ class CreateProgramAspect {
 	
 	@Main
 	def void entryPoint(){
-		for(Choreography c : _self.choreographies){
+		for(Choreography c : _self.starting_choreo){
 			c.execute()
 		}
 	}
@@ -68,9 +68,27 @@ class GoForwardAspect extends ActionAspect{
 	@Step
 	@OverrideAspectMethod
 	def void execute(){
-		System.out.println("Entering in go forward");
+		var time = 0 as int
+		if(_self.distance != -1){
+			time = _self.distance / PolyCreateControler.MAX_SPEED;
+		} else if(_self.duration != -1){
+			time = _self.duration;
+		}
 		CreateProgramAspect.controler.goForward();
-		CreateProgramAspect.controler.passiveWait(2);
+		CreateProgramAspect.controler.passiveWait(time);
+		CreateProgramAspect.controler.flushIRReceiver();
+		CreateProgramAspect.controler.step(CreateProgramAspect.controler.timestep);
+	}
+}
+
+@Aspect(className = Rotate)
+class RotateAspect extends ActionAspect{
+	@Step
+	@OverrideAspectMethod
+	def void execute(){
+		CreateProgramAspect.controler.turn(_self.angle as double * Math.PI / 180);
+		CreateProgramAspect.controler.passiveWait(0.5);
+		CreateProgramAspect.controler.flushIRReceiver();
 		CreateProgramAspect.controler.step(CreateProgramAspect.controler.timestep);
 	}
 }

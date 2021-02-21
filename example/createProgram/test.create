@@ -2,15 +2,15 @@ CreateProgram prog1 {
 	choreographies {
 		FiniteChoreography test {
 			instructions {
-				GoForward,GoForward
+				GoForward  16 cm,GoForward  16 cm
 			}
 		},
 		
 		FiniteChoreography test1 {
 			instructions {
-				GoForward,GoForward
+				Rotate 180 degrees, GoForward 3 s
 			}
 		}
 	}
-	starting_choreo : test, test1
+	starting_choreo : test1, test1, test1, test1, test1
 }

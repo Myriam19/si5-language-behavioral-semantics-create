@@ -24,9 +24,14 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference createlanguage.ecore#//Choreography/instructions"/>
     </genClasses>
     <genClasses image="false" ecoreClass="createlanguage.ecore#//Action"/>
-    <genClasses ecoreClass="createlanguage.ecore#//LoopChoreography"/>
+    <genClasses ecoreClass="createlanguage.ecore#//LoopChoreography">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference createlanguage.ecore#//LoopChoreography/outCondition"/>
+    </genClasses>
     <genClasses ecoreClass="createlanguage.ecore#//FiniteChoreography"/>
-    <genClasses ecoreClass="createlanguage.ecore#//GoForward"/>
+    <genClasses ecoreClass="createlanguage.ecore#//GoForward">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute createlanguage.ecore#//GoForward/distance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute createlanguage.ecore#//GoForward/duration"/>
+    </genClasses>
     <genClasses ecoreClass="createlanguage.ecore#//Interruption">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference createlanguage.ecore#//Interruption/conditions"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference createlanguage.ecore#//Interruption/choreography"/>
@@ -34,5 +39,8 @@
     <genClasses ecoreClass="createlanguage.ecore#//Condition"/>
     <genClasses ecoreClass="createlanguage.ecore#//ObjectFound"/>
     <genClasses image="false" ecoreClass="createlanguage.ecore#//Instruction"/>
+    <genClasses ecoreClass="createlanguage.ecore#//Rotate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute createlanguage.ecore#//Rotate/angle"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
