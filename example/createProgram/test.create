@@ -2,7 +2,10 @@ CreateProgram prog1 {
 	choreographies {
 		FiniteChoreography test {
 			instructions {
-				GoForward  16 cm,GoForward  16 cm
+				GoForward  16 cm,
+				Rotate 180 degrees,
+				GoForward  16 cm,
+				Rotate 90 degrees
 			}
 		},
 		
@@ -11,7 +14,14 @@ CreateProgram prog1 {
 				GrabInFront,
 				GoForward 3 s,
 				Rotate 180 degrees,
-				ReleaseInFront
+				ReleaseInFront,
+				GoForward 3 s
+			}
+		},
+		
+		FiniteChoreography gotoobject {
+			instructions {
+				GoToClosestObject
 			}
 		}
 	}
