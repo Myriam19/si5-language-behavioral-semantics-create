@@ -59,6 +59,11 @@ ReferenceChoreography returns ReferenceChoreography:
 	choreography=[Choreography|EString]
 ;
 
+Condition_Impl returns Condition:
+	{Condition}
+	'Condition'
+	;
+
 ObjectFound returns ObjectFound:
 	{ObjectFound}
 	'ObjectFound' 'at' distance=Eint 'cm'

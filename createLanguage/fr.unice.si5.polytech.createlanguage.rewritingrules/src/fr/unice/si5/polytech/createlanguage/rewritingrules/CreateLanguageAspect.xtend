@@ -316,7 +316,9 @@ class ObjectFoundAspect extends ConditionAspect{
 	}
 }
 
-/* @Aspect(className = GoToClosestObject)
+/* 
+
+@Aspect(className = GoToClosestObject)
 class GoToClosestObjectAspect extends ActionAspect{
 	
 	def double sqr(double a) {
