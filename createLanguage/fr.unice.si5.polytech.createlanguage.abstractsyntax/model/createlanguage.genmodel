@@ -53,5 +53,9 @@
     </genClasses>
     <genClasses ecoreClass="createlanguage.ecore#//GrabInFront"/>
     <genClasses ecoreClass="createlanguage.ecore#//ReleaseInFront"/>
+    <genClasses ecoreClass="createlanguage.ecore#//GoToClosestObject"/>
+    <genClasses image="false" ecoreClass="createlanguage.ecore#//ReferenceChoreography">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference createlanguage.ecore#//ReferenceChoreography/choreography"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

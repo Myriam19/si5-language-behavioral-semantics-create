@@ -16,14 +16,14 @@ Choreography returns Choreography:
 	LoopChoreography | FiniteChoreography;
 	
 Action returns Action:
-	GoForward | GoBackward | Rotate | Stop | GrabInFront | ReleaseInFront;
+	GoForward | GoBackward | Rotate | Stop | GrabInFront | ReleaseInFront | GoToClosestObject;
 
 Condition returns Condition:
 	ObjectFound;
 
 
 Instruction returns Instruction:
-	Choreography | Action;
+	Choreography | Action | ReferenceChoreography;
 
 EString returns ecore::EString:
 	STRING | ID;
@@ -53,6 +53,11 @@ FiniteChoreography returns FiniteChoreography:
 		('interruptions' '{' interruptions+=Interruption ( "," interruptions+=Interruption)* '}' )?
 		('instructions' '{' instructions+=Instruction ( "," instructions+=Instruction)* '}' )?
 	'}';
+	
+ReferenceChoreography returns ReferenceChoreography:
+	{ReferenceChoreography}
+	choreography=[Choreography|EString]
+;
 
 ObjectFound returns ObjectFound:
 	{ObjectFound}
@@ -87,6 +92,11 @@ GrabInFront returns GrabInFront:
 ReleaseInFront returns ReleaseInFront:
 	{ReleaseInFront}
 	'ReleaseInFront'
+;
+
+GoToClosestObject returns GoToClosestObject:
+	{GoToClosestObject}
+	'GoToClosestObject'
 ;
 
 Eint returns ecore::EInt:

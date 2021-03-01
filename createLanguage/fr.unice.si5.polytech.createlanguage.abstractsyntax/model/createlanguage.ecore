@@ -54,4 +54,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GrabInFront" eSuperTypes="#//Action"/>
   <eClassifiers xsi:type="ecore:EClass" name="ReleaseInFront" eSuperTypes="#//Action"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GoToClosestObject" eSuperTypes="#//Action"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ReferenceChoreography" eSuperTypes="#//Instruction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="choreography" lowerBound="1"
+        eType="#//Choreography"/>
+  </eClassifiers>
 </ecore:EPackage>

@@ -312,5 +312,47 @@ class ObjectFoundAspect extends ConditionAspect{
 		} else {
 			System.out.println("no object found");
 		}
+		
 	}
 }
+
+/* @Aspect(className = GoToClosestObject)
+class GoToClosestObjectAspect extends ActionAspect{
+	
+	def double sqr(double a) {
+        return a*a;
+    }
+ 
+    def double distance(double x1, double y1, double x2, double y2) {
+        return Math.sqrt(_self.sqr(y2 - y1) + _self.sqr(x2 - x1));
+    }
+	
+	@Step
+	@OverrideAspectMethod
+	def void execute(){
+		
+		CreateProgramAspect.controler.stop();
+		CreateProgramAspect.controler.passiveWait(0.5);
+		
+		if (CreateProgramAspect.controler.frontCamera.getCameraRecognitionObjects().length > 0) {
+			val double[] frontObjPos = CreateProgramAspect.controler.frontCamera.getCameraRecognitionObjects().get(0).getPosition();
+			val double[] frontObjOri = CreateProgramAspect.controler.frontCamera.getCameraRecognitionObjects().get(0).getOrientation();
+			
+			System.out.println("I saw an object on front Camera at : "+ frontObjPos.get(0) +","+ frontObjPos.get(1));
+			System.out.println("Object orientation : "+ frontObjOri.get(0) +","+ frontObjOri.get(1));
+			
+			CreateProgramAspect.controler.turn(frontObjOri.get(0));
+			
+			val double[] robotPos =  CreateProgramAspect.controler.getPosition();
+			val distance = _self.distance(robotPos.get(0), robotPos.get(1), frontObjPos.get(0), frontObjPos.get(1));
+			val time = distance / PolyCreateControler.MAX_SPEED;
+			
+			CreateProgramAspect.controler.goForward();
+			CreateProgramAspect.controler.passiveWait(time);
+		}
+		
+		
+		CreateProgramAspect.controler.flushIRReceiver();
+		CreateProgramAspect.controler.step(CreateProgramAspect.controler.timestep);
+	}
+}*/
