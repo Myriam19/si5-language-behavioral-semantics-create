@@ -193,7 +193,7 @@ class RotateAspect extends ActionAspect{
 			_self.right = true;
 			_self.angle = -_self.angle;
 		}
-		_self.time = _self.angle / (PolyCreateControler.HALF_SPEED*12.2);
+		_self.time = _self.angle / (PolyCreateControler.HALF_SPEED*12.1);
 	}
 	
 	@Step
