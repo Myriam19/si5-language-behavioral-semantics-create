@@ -37,7 +37,9 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference createlanguage.ecore#//Interruption/choreography"/>
     </genClasses>
     <genClasses ecoreClass="createlanguage.ecore#//Condition"/>
-    <genClasses ecoreClass="createlanguage.ecore#//ObjectFound"/>
+    <genClasses ecoreClass="createlanguage.ecore#//ObjectFound">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute createlanguage.ecore#//ObjectFound/distance"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="createlanguage.ecore#//Instruction"/>
     <genClasses ecoreClass="createlanguage.ecore#//Rotate">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute createlanguage.ecore#//Rotate/angle"/>

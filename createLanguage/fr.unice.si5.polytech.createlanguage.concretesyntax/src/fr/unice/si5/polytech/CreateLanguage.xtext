@@ -14,13 +14,16 @@ CreateProgram returns CreateProgram:
 
 Choreography returns Choreography:
 	LoopChoreography | FiniteChoreography;
+	
+Action returns Action:
+	GoForward | GoBackward | Rotate | Stop | GrabInFront | ReleaseInFront;
 
 Condition returns Condition:
-	Condition_Impl | ObjectFound;
+	ObjectFound;
 
 
 Instruction returns Instruction:
-	LoopChoreography | FiniteChoreography | GoForward | GoBackward | Rotate | Stop | GrabInFront | ReleaseInFront;
+	Choreography | Action;
 
 EString returns ecore::EString:
 	STRING | ID;
@@ -51,34 +54,29 @@ FiniteChoreography returns FiniteChoreography:
 		('instructions' '{' instructions+=Instruction ( "," instructions+=Instruction)* '}' )?
 	'}';
 
-Condition_Impl returns Condition:
-	{Condition}
-	'Condition'
-	;
-
 ObjectFound returns ObjectFound:
 	{ObjectFound}
-	'ObjectFound'
+	'ObjectFound' 'at' distance=Eint 'cm'
 	;
 
 GoForward returns GoForward:
 	{GoForward}
-	'GoForward' (distance=Eint 'cm' | duration=Eint 's')
+	'GoForward' (distance=EDouble 'cm' | duration=EDouble 's')
 	;
 	
 GoBackward returns GoBackward:
 	{GoBackward}
-	'GoBackward' (distance=Eint 'cm' | duration=Eint 's')
+	'GoBackward' (distance=EDouble 'cm' | duration=EDouble 's')
 	;
 	
 Stop returns Stop:
 	{Stop}
-	'Stop' duration=Eint 's'
+	'Stop' duration=EDouble 's'
 	;
 	
 Rotate returns Rotate:
 	{Rotate}
-	'Rotate' angle=Eint 'degrees'
+	'Rotate' angle=EDouble 'degrees'
 	;
 	
 GrabInFront returns GrabInFront:
@@ -93,3 +91,6 @@ ReleaseInFront returns ReleaseInFront:
 
 Eint returns ecore::EInt:
 	INT;
+	
+EDouble returns ecore::EDouble:
+	INT('.'INT)?;
