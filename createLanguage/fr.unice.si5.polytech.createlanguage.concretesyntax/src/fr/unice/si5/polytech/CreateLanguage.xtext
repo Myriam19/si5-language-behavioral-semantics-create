@@ -9,7 +9,7 @@ CreateProgram returns CreateProgram:
 	name=EString
 	'{'
 		'choreographies' '{' choreographies+=Choreography ( "," choreographies+=Choreography)* '}' 
-		'starting_choreo' ':' starting_choreo+=[Choreography|EString] ( "," starting_choreo+=[Choreography|EString])*
+		'starting_choreo' ':' starting_choreo+=ReferenceChoreography ( "," starting_choreo+=ReferenceChoreography)*
 	'}';
 
 Choreography returns Choreography:
@@ -57,12 +57,7 @@ FiniteChoreography returns FiniteChoreography:
 ReferenceChoreography returns ReferenceChoreography:
 	{ReferenceChoreography}
 	choreography=[Choreography|EString]
-;
-
-Condition_Impl returns Condition:
-	{Condition}
-	'Condition'
-	;
+; 
 
 ObjectFound returns ObjectFound:
 	{ObjectFound}

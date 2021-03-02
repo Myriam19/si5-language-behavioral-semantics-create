@@ -11,8 +11,10 @@ public class Services {
     
     public String getLabel(Instruction instruction) {
     	if(instruction instanceof GoForward) {
-    		return "";
+    		return ((GoForward)instruction).getDistance() + " cm";
+    	} else if(instruction instanceof Choreography) {
+    		return ((Choreography)instruction).getName();
     	}
-    	return "";
+    	return ""; 
     }
 }

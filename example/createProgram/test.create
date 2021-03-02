@@ -1,21 +1,25 @@
 CreateProgram prog1 {
 	choreographies {
-		
+		FiniteChoreography rotate {
+			instructions {
+				Rotate 180 degrees//, GoForward 20 cm
+			}
+		},
 		FiniteChoreography test {
-			/*interruptions {
+			interruptions {
 				Interruption {
 					choreography rotate
 					conditions {
 						ObjectFound at 10 cm
 					}
 				}
-			}*/
+			}
 			instructions {
 				/*GoForward  16 cm,
 				Rotate 180 degrees,
 				GoForward  16 cm,
 				Rotate 90 degrees*/
-				GoForward  15 cm, Rotate 180 degrees, GoForward  15 cm
+				GoForward  50 cm, rotate//, Rotate 180 degrees, GoForward  15 cm
 			}
 		},
 		
@@ -39,5 +43,5 @@ CreateProgram prog1 {
 	}
 	
 	
-	starting_choreo : test
+	starting_choreo : test, test, test1, test, rotate, test1
 }

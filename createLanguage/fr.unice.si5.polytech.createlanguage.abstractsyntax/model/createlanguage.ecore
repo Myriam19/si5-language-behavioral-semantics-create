@@ -9,7 +9,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="choreographies" lowerBound="1"
         upperBound="-1" eType="#//Choreography" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="starting_choreo" lowerBound="1"
-        upperBound="-1" eType="#//Choreography"/>
+        upperBound="-1" eType="#//ReferenceChoreography" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Choreography" abstract="true" eSuperTypes="#//NamedElement #//Instruction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="interruptions" upperBound="-1"

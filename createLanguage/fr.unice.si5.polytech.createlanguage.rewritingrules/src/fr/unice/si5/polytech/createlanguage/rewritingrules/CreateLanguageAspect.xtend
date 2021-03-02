@@ -29,7 +29,7 @@ class CreateProgramAspect {
 	
 	@Main
 	def void entryPoint(){
-		for(Choreography c : _self.starting_choreo){
+		for(ReferenceChoreography c : _self.starting_choreo){
 			c.start()
 			while(c.isRunning()){
 				c.doStep()
@@ -61,6 +61,23 @@ abstract class ActionAspect extends InstructionAspect{
 abstract class ChoreographyAspect extends InstructionAspect{
 }
 
+@Aspect(className = ReferenceChoreography)
+abstract class ReferenceChoreographyAspect extends InstructionAspect{
+	@OverrideAspectMethod
+	def void start(){
+		_self.choreography.start()
+	}
+	
+	@Step
+	@OverrideAspectMethod
+	def void doStep(){
+		_self.choreography.doStep()
+		if(_self.choreography.isRunning() == false){
+			_self.isRunning(false)
+		}
+	}
+}
+
 @Aspect(className = FiniteChoreography)
 class FiniteChoreographyAspect extends ChoreographyAspect{
 	private var Instruction currentInstruction
@@ -79,6 +96,9 @@ class FiniteChoreographyAspect extends ChoreographyAspect{
 	@Step
 	@OverrideAspectMethod
 	def void doStep(){
+		//CreateProgramAspect.controler.flushIRReceiver();
+		//CreateProgramAspect.controler.step(CreateProgramAspect.controler.timestep);
+		//CreateProgramAspect.controler.passiveWait(CreateProgramAspect.controler.timestep);
 		//Check interruptions
 		if(!_self.interruptions.isEmpty()){
 			for(Interruption i : _self.interruptions){
@@ -92,8 +112,7 @@ class FiniteChoreographyAspect extends ChoreographyAspect{
 			if(_self.currentInstruction.isRunning()){
 				_self.currentInstruction.doStep()
 			} else {
-				CreateProgramAspect.controler.flushIRReceiver();
-				CreateProgramAspect.controler.step(CreateProgramAspect.controler.timestep);
+				CreateProgramAspect.controler.step(CreateProgramAspect.controler.timestep);	
 				if(_self.currentInstructionIndex < _self.instructions.size()-1){
 					_self.currentInstruction = _self.instructions.get(_self.currentInstructionIndex+1)
 					_self.currentInstruction.start()
@@ -200,9 +219,8 @@ class RotateAspect extends ActionAspect{
 	@OverrideAspectMethod
 	def void doStep(){
 		if(_self.isRunning && _self.time > 0){
-			System.out.println("here : "+_self.time)
 			CreateProgramAspect.controler.turnDuringCertainTime( Math.min(_self.time, CreateProgramAspect.step), _self.right);
-			System.out.println("next here : "+_self.time)
+			//CreateProgramAspect.controler.passiveWait(Math.min(_self.time, CreateProgramAspect.step));
 			if(_self.time < CreateProgramAspect.step){
 				_self.isRunning(false);
 			} else {
@@ -285,8 +303,6 @@ class InterruptionAspect{
 			_self.choreography.start()
 			while(_self.choreography.isRunning()){
 				_self.choreography.doStep()
-				CreateProgramAspect.controler.flushIRReceiver();
-				CreateProgramAspect.controler.step(CreateProgramAspect.controler.timestep);
 			}
 		}
 	}
@@ -301,14 +317,27 @@ abstract class ConditionAspect{
 
 @Aspect(className = ObjectFound)
 class ObjectFoundAspect extends ConditionAspect{
+	def double sqr(double a) {
+        return a*a;
+    }
+ 
+    def double distance(double x1, double y1, double x2, double y2) {
+        return Math.sqrt(_self.sqr(y2 - y1) + _self.sqr(x2 - x1));
+    }
+	
 	@Step
 	@OverrideAspectMethod
 	def void check(){
 		_self.isValid(false);
-		
+		var double[] robotPos = CreateProgramAspect.controler.getPosition();
 		var double[] pos = CreateProgramAspect.controler.getFrontObjectPosition();
 		if(pos !== null){
-			System.out.println("object found : "+pos.get(0) + " / " + pos.get(1));
+			var double distance = _self.distance(robotPos.get(0), robotPos.get(1), pos.get(0), pos.get(1));
+			var double distanceCm  = distance * 100-5; 
+			System.out.println("object found : " + distanceCm);
+			if(distanceCm < _self.distance){
+				_self.isValid(true);
+			}
 		} else {
 			System.out.println("no object found");
 		}
