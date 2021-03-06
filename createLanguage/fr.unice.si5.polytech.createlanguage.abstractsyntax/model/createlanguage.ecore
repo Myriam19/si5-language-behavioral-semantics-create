@@ -32,7 +32,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Interruption">
     <eStructuralFeatures xsi:type="ecore:EReference" name="conditions" upperBound="-1"
         eType="#//Condition" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="choreography" eType="#//Choreography"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="choreography" lowerBound="1"
+        eType="#//ReferenceChoreography" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Condition" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="ObjectFound" eSuperTypes="#//Condition">

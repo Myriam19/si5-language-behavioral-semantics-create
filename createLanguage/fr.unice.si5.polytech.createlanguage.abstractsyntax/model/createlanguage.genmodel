@@ -34,7 +34,7 @@
     </genClasses>
     <genClasses ecoreClass="createlanguage.ecore#//Interruption">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference createlanguage.ecore#//Interruption/conditions"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference createlanguage.ecore#//Interruption/choreography"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference createlanguage.ecore#//Interruption/choreography"/>
     </genClasses>
     <genClasses ecoreClass="createlanguage.ecore#//Condition"/>
     <genClasses ecoreClass="createlanguage.ecore#//ObjectFound">

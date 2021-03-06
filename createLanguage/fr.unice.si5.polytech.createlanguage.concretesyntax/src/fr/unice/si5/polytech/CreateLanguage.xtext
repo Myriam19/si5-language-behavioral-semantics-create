@@ -32,7 +32,7 @@ Interruption returns Interruption:
 	{Interruption}
 	'Interruption'
 	'{'
-		('choreography' choreography=[Choreography|EString])?
+		('choreography' choreography=ReferenceChoreography)
 		('conditions' '{' conditions+=Condition ( "," conditions+=Condition)* '}' )?
 	'}';
 
@@ -57,6 +57,7 @@ FiniteChoreography returns FiniteChoreography:
 ReferenceChoreography returns ReferenceChoreography:
 	{ReferenceChoreography}
 	choreography=[Choreography|EString]
+	
 ; 
 
 ObjectFound returns ObjectFound:

@@ -12,6 +12,13 @@ CreateProgram prog1 {
 					conditions {
 						ObjectFound at 10 cm
 					}
+				},
+				
+				Interruption {
+					choreography rotate
+					conditions {
+						ObjectFound at 10 cm
+					}
 				}
 			}
 			instructions {
@@ -43,5 +50,5 @@ CreateProgram prog1 {
 	}
 	
 	
-	starting_choreo : test, test, test1, test, rotate, test1
+	starting_choreo : test, test1, test
 }

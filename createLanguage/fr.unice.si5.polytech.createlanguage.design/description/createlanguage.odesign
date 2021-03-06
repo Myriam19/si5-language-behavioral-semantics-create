@@ -4,8 +4,8 @@
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="program" initialisation="true" showOnStartup="true" domainClass="createlanguage::CreateProgram" enablePopupBars="true">
       <metamodel href="../../fr.unice.si5.polytech.createlanguage.abstractsyntax/model/createlanguage.ecore#/"/>
       <layout xsi:type="description_1:CompositeLayout" direction="LeftToRight"/>
-      <defaultLayer name="Default" reusedMappings="//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='ReferenceChoreography']/@subContainerMappings[name='Choreography']">
-        <edgeMappings name="NextChoreography" sourceMapping="//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='ReferenceChoreography']" targetMapping="//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='ReferenceChoreography']" targetFinderExpression="[self.eContainer().oclAsType(CreateProgram).starting_choreo->at(self.eContainer().oclAsType(CreateProgram).starting_choreo->indexOf(self)+1)/]">
+      <defaultLayer name="Default" reusedMappings="//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']">
+        <edgeMappings name="NextChoreography" sourceMapping="//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']" targetMapping="//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']" targetFinderExpression="[self.eContainer().oclAsType(CreateProgram).starting_choreo->at(self.eContainer().oclAsType(CreateProgram).starting_choreo->indexOf(self)+1)/]">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -13,22 +13,38 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="ReferenceChoreography" semanticCandidatesExpression="feature:starting_choreo" domainClass="createlanguage::ReferenceChoreography">
-          <subContainerMappings name="Choreography" semanticCandidatesExpression="feature:choreography" domainClass="createlanguage::Choreography" childrenPresentation="List">
-            <subNodeMappings name="Instruction" semanticCandidatesExpression="feature:instructions" domainClass="createlanguage::Instruction">
-              <style xsi:type="style:SquareDescription" labelSize="12" labelExpression="service:getLabel()" labelPosition="node" resizeKind="NSEW">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-              </style>
-            </subNodeMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+        <edgeMappings name="LinkChoreoToInterruption" sourceMapping="//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Interruption']" targetMapping="//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']" targetFinderExpression="[self.eContainer()/]">
+          <style sourceArrow="InputArrow" targetArrow="NoDecoration" sizeComputationExpression="2" routingStyle="manhattan">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="service:getConditions()">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="LinkInterruptionToChoreo" sourceMapping="//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Interruption']" targetMapping="//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']" targetFinderExpression="[self.eContainer()/]">
+          <style lineStyle="dot" sizeComputationExpression="2" routingStyle="manhattan">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </edgeMappings>
+        <containerMappings name="Choreography" semanticCandidatesExpression="[self.starting_choreo.choreography/]" domainClass="createlanguage::Choreography" childrenPresentation="VerticalStack">
+          <subContainerMappings name="Instruction" semanticCandidatesExpression="[self.instructions->select(i | not i.oclIsKindOf(ReferenceChoreography))/]" domainClass="createlanguage::Instruction">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="service:getLabel()">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
             </style>
           </subContainerMappings>
+          <subContainerMappings xsi:type="description_1:ContainerMappingImport" name="RefChoreo" semanticCandidatesExpression="[self.instructions->select(i | i.oclIsKindOf(ReferenceChoreography)).oclAsType(ReferenceChoreography).choreography/]" domainClass="createlanguage::Choreography" reusedContainerMappings="//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography'] //@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']/@subContainerMappings[name='Instruction'] //@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']/@subContainerMappings[name='RefChoreo']" childrenPresentation="VerticalStack" importedMapping="//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']"/>
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="50" arcHeight="50" borderSizeComputationExpression="1" labelSize="12">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="Interruption" semanticCandidatesExpression="[self.starting_choreo.choreography.interruptions/]" domainClass="createlanguage::Interruption">
+          <subContainerMappings xsi:type="description_1:ContainerMappingImport" name="RefChoreo" semanticCandidatesExpression="[self.choreography.choreography/]" domainClass="createlanguage::Choreography" reusedContainerMappings="//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Interruption'] //@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Interruption']/@subContainerMappings[name='RefChoreo'] //@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography'] //@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']/@subContainerMappings[name='Instruction'] //@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']/@subContainerMappings[name='RefChoreo']" childrenPresentation="VerticalStack" importedMapping="//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']"/>
         </containerMappings>
       </defaultLayer>
     </ownedRepresentations>
