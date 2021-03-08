@@ -1,5 +1,0 @@
-CreateProgram MyProg {
-	instructions {
-		GoForward
-	}
-}

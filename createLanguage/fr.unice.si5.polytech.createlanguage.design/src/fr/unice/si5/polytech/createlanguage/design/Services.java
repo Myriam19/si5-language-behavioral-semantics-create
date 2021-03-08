@@ -13,7 +13,13 @@ public class Services {
     
     public String getLabel(Instruction instruction) {
     	if(instruction instanceof GoForward) {
-    		return ((GoForward)instruction).getDistance() + " cm";
+    		GoForward gf = (GoForward)instruction;
+    		
+    		if(gf.getDistance() != -1) {
+    			return gf.getDistance() + " cm";
+    		} else {
+    			return gf.getDuration() + " s";
+    		}
     	} else if(instruction instanceof Choreography) {
     		return ((Choreography)instruction).getName();
     	}

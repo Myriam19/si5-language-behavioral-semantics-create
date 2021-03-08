@@ -13,6 +13,8 @@ import static extension fr.unice.si5.polytech.createlanguage.rewritingrules.Chor
 import static extension fr.unice.si5.polytech.createlanguage.rewritingrules.FiniteChoreographyAspect.*;
 import static extension fr.unice.si5.polytech.createlanguage.rewritingrules.InterruptionAspect.*;
 import static extension fr.unice.si5.polytech.createlanguage.rewritingrules.ConditionAspect.*;
+import static extension fr.unice.si5.polytech.createlanguage.rewritingrules.GrabInFrontAspect.*;
+import static extension fr.unice.si5.polytech.createlanguage.rewritingrules.ReleaseInFrontAspect.*;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Main
 import fr.inria.diverse.k3.al.annotationprocessor.Step
@@ -65,6 +67,7 @@ abstract class ChoreographyAspect extends InstructionAspect{
 abstract class ReferenceChoreographyAspect extends InstructionAspect{
 	@OverrideAspectMethod
 	def void start(){
+		_self.isRunning(true)
 		_self.choreography.start()
 	}
 	
@@ -205,14 +208,15 @@ class StopAspect extends ActionAspect{
 @Aspect(className = Rotate)
 class RotateAspect extends ActionAspect{
 	private var Boolean right = false;
+	private var Double realAngle;
 	@OverrideAspectMethod
 	def void start(){
 		_self.isRunning(true);
 		if(_self.angle < 0){
 			_self.right = true;
-			_self.angle = -_self.angle;
+			_self.realAngle = -_self.angle;
 		}
-		_self.time = _self.angle / (PolyCreateControler.HALF_SPEED*12.1);
+		_self.time = _self.realAngle / (PolyCreateControler.HALF_SPEED*12.1);
 	}
 	
 	@Step
@@ -220,7 +224,6 @@ class RotateAspect extends ActionAspect{
 	def void doStep(){
 		if(_self.isRunning && _self.time > 0){
 			CreateProgramAspect.controler.turnDuringCertainTime( Math.min(_self.time, CreateProgramAspect.step), _self.right);
-			//CreateProgramAspect.controler.passiveWait(Math.min(_self.time, CreateProgramAspect.step));
 			if(_self.time < CreateProgramAspect.step){
 				_self.isRunning(false);
 			} else {
@@ -230,9 +233,74 @@ class RotateAspect extends ActionAspect{
 	}
 }
 
-/*@Aspect(className = GrabInFront)
+@Aspect(className = GrabInFront)
 class GrabInFrontAspect extends ActionAspect{
-	@Step
+	private var Boolean stopped = false;
+	private var Boolean turned = false;
+	private var Boolean opened = false;
+	private var Boolean wentBackward = false;
+	private var Boolean closed = false;
+	
+	@OverrideAspectMethod
+	def void start(){
+		_self.isRunning(true)
+		_self.stopped = false;
+		_self.turned = false;
+		_self.opened = false;
+		_self.wentBackward = false;
+		_self.closed = false;
+	}
+	
+	@OverrideAspectMethod
+	def void doStep(){
+		if(!_self.stopped){
+			_self.stop()
+		} else if(!_self.turned){
+			_self.turn()
+		} else if(!_self.opened){
+			_self.openGripper()
+		} else if(!_self.wentBackward){
+			_self.goBackward()
+		} else if(!_self.closed){
+			_self.closeGripper()
+		} else {
+			_self.isRunning(false);
+		}
+	}
+	
+	def void stop(){
+		CreateProgramAspect.controler.stop();
+		CreateProgramAspect.controler.passiveWait(0.5);
+		_self.stopped(true)
+	}
+	
+	def void turn(){
+		var Double time = 180 / (PolyCreateControler.HALF_SPEED*12.1);
+		CreateProgramAspect.controler.turnDuringCertainTime(time, true);
+		_self.turned(true)
+	}
+	
+	def void openGripper(){
+		CreateProgramAspect.controler.openGripper();
+		CreateProgramAspect.controler.passiveWait(0.5);
+		_self.opened(true)
+	}
+	
+	def void goBackward(){
+		_self.stopped(false)
+		CreateProgramAspect.controler.goBackward();
+		CreateProgramAspect.controler.passiveWait(1.19);
+		_self.wentBackward(true)
+	}
+	
+	def void closeGripper(){
+		_self.stopped(false)
+		CreateProgramAspect.controler.closeGripper();
+		CreateProgramAspect.controler.passiveWait(0.5);
+		_self.closed(true)
+	}
+	
+	/*@Step
 	@OverrideAspectMethod
 	def void execute(){
 		
@@ -253,12 +321,12 @@ class GrabInFrontAspect extends ActionAspect{
 		
 		CreateProgramAspect.controler.flushIRReceiver();
 		CreateProgramAspect.controler.step(CreateProgramAspect.controler.timestep);
-	}
+	}*/
 }
 
 @Aspect(className = ReleaseInFront)
 class ReleaseInFrontAspect extends ActionAspect{
-	@Step
+	/*@Step
 	@OverrideAspectMethod
 	def void execute(){
 		
@@ -279,8 +347,8 @@ class ReleaseInFrontAspect extends ActionAspect{
 		
 		CreateProgramAspect.controler.flushIRReceiver();
 		CreateProgramAspect.controler.step(CreateProgramAspect.controler.timestep);
-	}
-}*/
+	}*/
+}
 
 @Aspect(className = Interruption)
 class InterruptionAspect{
@@ -338,8 +406,6 @@ class ObjectFoundAspect extends ConditionAspect{
 			if(distanceCm < _self.distance){
 				_self.isValid(true);
 			}
-		} else {
-			System.out.println("no object found");
 		}
 		
 	}
