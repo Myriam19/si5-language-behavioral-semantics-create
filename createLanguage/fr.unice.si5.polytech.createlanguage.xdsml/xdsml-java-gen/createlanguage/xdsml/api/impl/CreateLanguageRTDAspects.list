@@ -1,0 +1,8 @@
+fr.unice.si5.polytech.createlanguage.rewritingrules.ConditionAspect
+fr.unice.si5.polytech.createlanguage.rewritingrules.ActionAspect
+fr.unice.si5.polytech.createlanguage.rewritingrules.RotateAspect
+fr.unice.si5.polytech.createlanguage.rewritingrules.ReleaseInFrontAspect
+fr.unice.si5.polytech.createlanguage.rewritingrules.FiniteChoreographyAspect
+fr.unice.si5.polytech.createlanguage.rewritingrules.InstructionAspect
+fr.unice.si5.polytech.createlanguage.rewritingrules.GrabInFrontAspect
+fr.unice.si5.polytech.createlanguage.rewritingrules.ParalleleChoreoAspect

@@ -26,7 +26,7 @@
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
           </style>
         </edgeMappings>
-        <containerMappings name="Choreography" semanticCandidatesExpression="[self.starting_choreo.choreography/]" domainClass="createlanguage::Choreography" childrenPresentation="VerticalStack">
+        <containerMappings name="Choreography" semanticCandidatesExpression="service:getChoreo()" domainClass="createlanguage::Choreography" childrenPresentation="VerticalStack">
           <subContainerMappings name="Instruction" semanticCandidatesExpression="[self.instructions->select(i | not i.oclIsKindOf(ReferenceChoreography))/]" domainClass="createlanguage::Instruction">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="service:getLabel()">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -43,7 +43,7 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
         </containerMappings>
-        <containerMappings name="Interruption" semanticCandidatesExpression="[self.starting_choreo.choreography.interruptions/]" domainClass="createlanguage::Interruption">
+        <containerMappings name="Interruption" semanticCandidatesExpression="service:getInterruptions()" domainClass="createlanguage::Interruption">
           <subContainerMappings xsi:type="description_1:ContainerMappingImport" name="RefChoreo" semanticCandidatesExpression="[self.choreography.choreography/]" domainClass="createlanguage::Choreography" reusedContainerMappings="//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Interruption'] //@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Interruption']/@subContainerMappings[name='RefChoreo'] //@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography'] //@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']/@subContainerMappings[name='Instruction'] //@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']/@subContainerMappings[name='RefChoreo']" childrenPresentation="VerticalStack" importedMapping="//@ownedViewpoints[name='CreateLanguageViewpoint']/@ownedRepresentations[name='program']/@defaultLayer/@containerMappings[name='Choreography']"/>
         </containerMappings>
       </defaultLayer>

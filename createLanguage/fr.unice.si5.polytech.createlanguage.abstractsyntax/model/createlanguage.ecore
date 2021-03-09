@@ -9,7 +9,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="choreographies" lowerBound="1"
         upperBound="-1" eType="#//Choreography" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="starting_choreo" lowerBound="1"
-        upperBound="-1" eType="#//ReferenceChoreography" containment="true"/>
+        upperBound="-1" eType="#//ChoreoToRun" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Choreography" abstract="true" eSuperTypes="#//NamedElement #//Instruction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="interruptions" upperBound="-1"
@@ -56,11 +56,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="GrabInFront" eSuperTypes="#//Action"/>
   <eClassifiers xsi:type="ecore:EClass" name="ReleaseInFront" eSuperTypes="#//Action"/>
   <eClassifiers xsi:type="ecore:EClass" name="GoToClosestObject" eSuperTypes="#//Action"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ReferenceChoreography" eSuperTypes="#//Instruction">
+  <eClassifiers xsi:type="ecore:EClass" name="ReferenceChoreography" eSuperTypes="#//ChoreoToRun">
+    <eOperations name="start"/>
+    <eOperations name="doStep"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="choreography" lowerBound="1"
         eType="#//Choreography"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ObstacleFoundLeft" eSuperTypes="#//Condition"/>
   <eClassifiers xsi:type="ecore:EClass" name="ObstacleFoundRight" eSuperTypes="#//Condition"/>
   <eClassifiers xsi:type="ecore:EClass" name="VirtualWallFound" eSuperTypes="#//Condition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ChoreoToRun" eSuperTypes="#//Instruction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ParalleleChoreo" eSuperTypes="#//ChoreoToRun">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referenceChoreographies"
+        upperBound="-1" eType="#//ReferenceChoreography" containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

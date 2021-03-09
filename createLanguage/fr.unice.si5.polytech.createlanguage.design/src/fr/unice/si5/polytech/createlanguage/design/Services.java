@@ -1,6 +1,9 @@
 package fr.unice.si5.polytech.createlanguage.design;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -26,7 +29,7 @@ public class Services {
     	return ""; 
     }
     
-    public ReferenceChoreography getNextChoreo(ReferenceChoreography ref) {
+    /*public ReferenceChoreography getNextChoreo(ReferenceChoreography ref) {
     	CreateProgram prog = (CreateProgram) ref.eContainer();
     	List<ReferenceChoreography> startingChoreo = prog.getStarting_choreo();
     	
@@ -37,6 +40,36 @@ public class Services {
     	} else {
     		return startingChoreo.get(position+1);
     	}
+    }*/
+    
+    public List<Choreography> getChoreo(CreateProgram prog){
+    	List<Choreography> refs = new ArrayList<>();
+    	
+    	for (ChoreoToRun c : prog.getStarting_choreo()) {
+			if(c instanceof ReferenceChoreography) {
+				refs.add(((ReferenceChoreography) c).getChoreography());
+			} else {
+				ParalleleChoreo p = (ParalleleChoreo) c;
+				for (ReferenceChoreography referenceChoreography : p.getReferenceChoreographies()) {
+					refs.add(referenceChoreography.getChoreography());
+				}
+			}
+		}
+    	
+    	return refs;
+    }
+    
+    public List<Interruption> getInterruptions(CreateProgram prog){
+    	List<Interruption> interruptions = new ArrayList<>();
+    	List<Choreography> choreos = getChoreo(prog);
+    	
+    	for (Choreography c : choreos) {
+    		for (Interruption i : c.getInterruptions()) {
+    			interruptions.add(i);
+			}
+		}
+    	
+    	return interruptions;
     }
     
     public boolean hasInterruption(ReferenceChoreography ref) {
