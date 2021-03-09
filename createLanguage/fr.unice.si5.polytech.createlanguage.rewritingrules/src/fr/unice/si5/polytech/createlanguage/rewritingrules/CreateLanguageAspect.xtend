@@ -186,11 +186,13 @@ class FiniteChoreographyAspect extends ChoreographyAspect{
 class LoopChoreographyAspect extends ChoreographyAspect{
 	private var Instruction currentInstruction
 	private var int currentInstructionIndex = 0;
+	private var Boolean firstInterruptionChecked = true;
 	
 	@OverrideAspectMethod
 	def void start(){
 		System.out.println("Dans le LoopChoreo start");
 		_self.isRunning(true);
+		_self.firstInterruptionChecked(true);
 		if(_self.instructions.size() > 0){
 			_self.currentInstruction = _self.instructions.get(0)
 			_self.currentInstruction.start()
@@ -207,9 +209,13 @@ class LoopChoreographyAspect extends ChoreographyAspect{
 		//CreateProgramAspect.controler.passiveWait(CreateProgramAspect.controler.timestep);
 		//Check interruptions
 		if(!_self.interruptions.isEmpty()){
-			for(Interruption i : _self.interruptions){
-				if(i.isConditionsValid()){
-					i.execute()
+			if(_self.firstInterruptionChecked){
+				_self.firstInterruptionChecked(false)
+			} else {
+				for(Interruption i : _self.interruptions){
+					if(i.isConditionsValid()){
+						i.execute()
+					}
 				}
 			}
 		}
@@ -224,7 +230,7 @@ class LoopChoreographyAspect extends ChoreographyAspect{
 			if(_self.currentInstruction.isRunning()){
 				_self.currentInstruction.doStep()
 			} else {
-				CreateProgramAspect.controler.step(CreateProgramAspect.controler.timestep);	
+				//CreateProgramAspect.controler.step(CreateProgramAspect.controler.timestep);	
 				if(_self.currentInstructionIndex < _self.instructions.size()-1){
 					_self.currentInstruction = _self.instructions.get(_self.currentInstructionIndex+1)
 					_self.currentInstruction.start()

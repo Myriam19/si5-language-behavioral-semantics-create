@@ -65,7 +65,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="ObstacleFoundLeft" eSuperTypes="#//Condition"/>
   <eClassifiers xsi:type="ecore:EClass" name="ObstacleFoundRight" eSuperTypes="#//Condition"/>
   <eClassifiers xsi:type="ecore:EClass" name="VirtualWallFound" eSuperTypes="#//Condition"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ChoreoToRun" eSuperTypes="#//Instruction"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ChoreoToRun" abstract="true" eSuperTypes="#//Instruction"/>
   <eClassifiers xsi:type="ecore:EClass" name="ParalleleChoreo" eSuperTypes="#//ChoreoToRun">
     <eStructuralFeatures xsi:type="ecore:EReference" name="referenceChoreographies"
         upperBound="-1" eType="#//ReferenceChoreography" containment="true"/>
