@@ -42,6 +42,7 @@ LoopChoreography returns LoopChoreography:
 	'{'
 		('interruptions' '{' interruptions+=Interruption ( "," interruptions+=Interruption)* '}' )?
 		('instructions' '{' instructions+=Instruction ( "," instructions+=Instruction)* '}' )?
+		('outCondition' ':' outCondition=Condition)?
 	'}';
 
 FiniteChoreography returns FiniteChoreography:

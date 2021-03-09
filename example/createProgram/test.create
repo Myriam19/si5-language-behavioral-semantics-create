@@ -24,7 +24,7 @@ CreateProgram prog1 {
 				Rotate 180 degrees,
 				GoForward  16 cm,
 				Rotate 90 degrees*/
-				GoForward  50 cm//, rotate//, Rotate 180 degrees, GoForward  15 cm
+				GoForward 50 cm//, rotate//, Rotate 180 degrees, GoForward  15 cm
 			}
 		},
 		
@@ -41,12 +41,21 @@ CreateProgram prog1 {
 		FiniteChoreography gotoobject {
 			instructions {
 				GoToClosestObject,
-				Rotate 180.0 degrees,
-				ReleaseInFront
+				GoForward 3 s
+				/*ReleaseInFront*/
 			}
+		},
+		
+		LoopChoreography loop {
+			instructions {
+				GoForward 2 s,
+				GoBackward 2 s
+				/*ReleaseInFront*/
+			}
+			outCondition : ObjectFound at 10 cm
 		}
 	}
 	
 	
-	starting_choreo : test
+	starting_choreo : loop
 }

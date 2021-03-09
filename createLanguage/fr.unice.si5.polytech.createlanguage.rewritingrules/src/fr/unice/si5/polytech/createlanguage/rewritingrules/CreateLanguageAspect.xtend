@@ -131,6 +131,67 @@ class FiniteChoreographyAspect extends ChoreographyAspect{
 	}
 }
 
+@Aspect(className = LoopChoreography)
+class LoopChoreographyAspect extends ChoreographyAspect{
+	private var Instruction currentInstruction
+	private var int currentInstructionIndex = 0;
+	
+	@OverrideAspectMethod
+	def void start(){
+		System.out.println("Dans le LoopChoreo start");
+		_self.isRunning(true);
+		if(_self.instructions.size() > 0){
+			_self.currentInstruction = _self.instructions.get(0)
+			_self.currentInstruction.start()
+			_self.currentInstructionIndex = 0
+		}
+	}
+	
+	@Step
+	@OverrideAspectMethod
+	def void doStep(){
+		System.out.println("Dans le LoopChoreo dostep");
+		//CreateProgramAspect.controler.flushIRReceiver();
+		//CreateProgramAspect.controler.step(CreateProgramAspect.controler.timestep);
+		//CreateProgramAspect.controler.passiveWait(CreateProgramAspect.controler.timestep);
+		//Check interruptions
+		if(!_self.interruptions.isEmpty()){
+			for(Interruption i : _self.interruptions){
+				if(i.isConditionsValid()){
+					i.execute()
+				}
+			}
+		}
+		
+		/*_self.outCondition.check();
+		if (_self.outCondition.isValid()){
+			_self.isRunning(false);						
+			return;
+		}*/
+		
+		if(_self.instructions.size() > 0){
+			if(_self.currentInstruction.isRunning()){
+				_self.currentInstruction.doStep()
+			} else {
+				CreateProgramAspect.controler.step(CreateProgramAspect.controler.timestep);	
+				if(_self.currentInstructionIndex < _self.instructions.size()-1){
+					_self.currentInstruction = _self.instructions.get(_self.currentInstructionIndex+1)
+					_self.currentInstruction.start()
+					_self.currentInstructionIndex = _self.currentInstructionIndex+1
+				} else {
+					_self.start()
+				}
+			}
+		}
+		
+		// _self.isRunning(false)	
+		_self.outCondition.check();
+		if (_self.outCondition.isValid()){			
+			_self.isRunning(false)
+		}
+	}
+}
+
 @Aspect(className = GoForward)
 class GoForwardAspect extends ActionAspect{
 	@OverrideAspectMethod
