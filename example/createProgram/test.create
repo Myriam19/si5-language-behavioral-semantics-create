@@ -2,7 +2,7 @@ CreateProgram prog1 {
 	choreographies {
 		FiniteChoreography grabObject {
 			instructions {
-				GrabInFront//, GoForward 20 cm
+				GrabInFront, ReleaseInFront//, GoForward 20 cm
 			}
 		},
 		FiniteChoreography rotate {
@@ -15,16 +15,28 @@ CreateProgram prog1 {
 				Interruption {
 					choreography grabObject
 					conditions {
-						ObjectFound at 10 cm
+						ObjectFound at 5 cm
 					}
-				}
+				}/*,
+				Interruption {
+					choreography rotate
+					conditions {
+						ObstacleFoundLeft
+					}
+				},
+				Interruption {
+					choreography rotate
+					conditions {
+						ObstacleFoundRight
+					}
+				}*/
 			}
 			instructions {
 				/*GoForward  16 cm,
 				Rotate 180 degrees,
 				GoForward  16 cm,
 				Rotate 90 degrees*/
-				GoForward 50 cm//, rotate//, Rotate 180 degrees, GoForward  15 cm
+				GoForward  100 cm//, rotate//, Rotate 180 degrees, GoForward  15 cm
 			}
 		},
 		

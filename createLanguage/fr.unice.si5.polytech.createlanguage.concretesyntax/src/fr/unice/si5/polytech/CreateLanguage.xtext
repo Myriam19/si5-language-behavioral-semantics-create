@@ -15,6 +15,9 @@ CreateProgram returns CreateProgram:
 Choreography returns Choreography:
 	LoopChoreography | FiniteChoreography;
 	
+ChoreoToRun returns ChoreoToRun:
+	ReferenceChoreography | ParalleleChoreo;
+	
 Action returns Action:
 	GoForward | GoBackward | Rotate | Stop | GrabInFront | ReleaseInFront | GoToClosestObject;
 
@@ -22,7 +25,7 @@ Condition returns Condition:
 	ObjectFound | ObstacleFoundLeft | ObstacleFoundRight | VirtualWallFound;
 
 Instruction returns Instruction:
-	Choreography | Action | ReferenceChoreography;
+	Choreography | Action | ChoreoToRun;
 
 EString returns ecore::EString:
 	STRING | ID;
@@ -57,6 +60,12 @@ FiniteChoreography returns FiniteChoreography:
 ReferenceChoreography returns ReferenceChoreography:
 	{ReferenceChoreography}
 	choreography=[Choreography|EString]
+	
+; 
+
+ParalleleChoreo returns ParalleleChoreo:
+	{ParalleleChoreo}
+	'(' referenceChoreographies+=ReferenceChoreography '||' referenceChoreographies+=ReferenceChoreography ('||' referenceChoreographies+=ReferenceChoreography)* ')'
 	
 ; 
 

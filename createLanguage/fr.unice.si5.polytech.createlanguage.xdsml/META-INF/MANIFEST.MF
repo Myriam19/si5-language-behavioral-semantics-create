@@ -1,6 +1,7 @@
 Manifest-Version: 1.0
 Automatic-Module-Name: fr.unice.si5.polytech.createlanguage.xdsml
 Bundle-SymbolicName: fr.unice.si5.polytech.createlanguage.xdsml; singleton:=true
+Export-Package: createlanguage.xdsml.api.impl
 Bundle-Name: fr.unice.si5.polytech.createlanguage.xdsml
 Bundle-Version: 1.0.0
 Bundle-ClassPath: .
@@ -15,7 +16,12 @@ Require-Bundle: org.eclipse.xtend.lib;bundle-version="2.14.0";visibility:="priva
  org.eclipse.gemoc.executionframework.engine;bundle-version="4.0.0";visibility:="reexport",
  fr.unice.si5.polytech.createlanguage.rewritingrules;bundle-version="0.0.0";visibility:="private",
  fr.unice.si5.polytech.createlanguage.abstractsyntax;bundle-version="0.0.0";visibility:="private",
- org.eclipse.gemoc.executionframework.extensions.sirius;bundle-version="0.0.0";visibility:=reexport
+ org.eclipse.gemoc.executionframework.extensions.sirius;bundle-version="0.0.0";visibility:=reexport,
+ org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.api;bundle-version="0.0.0";visibility:="reexport",
+ org.eclipse.gemoc.execution.concurrent.ccsljavaengine;bundle-version="0.0.0";visibility:="reexport",
+ org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3;bundle-version="0.0.0";visibility:="reexport",
+ org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare;bundle-version="0.0.0";visibility:="reexport",
+ org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.k3.rtd.modelstate;bundle-version="0.0.0";visibility:="reexport"
 Bundle-ManifestVersion: 2
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy

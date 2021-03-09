@@ -30,10 +30,10 @@ import com.cyberbotics.webots.controller.TouchSensor;
 
 public class PolyCreateControler extends Robot {
 
-	public static int MAX_SPEED = 16;
+	public static int MAX_SPEED = 6;
 	public static int NULL_SPEED = 0;
 	public static int HALF_SPEED = 3;
-	public static int MIN_SPEED = -16;
+	public static int MIN_SPEED = -6;
 
 	public static double WHEEL_RADIUS = 0.023;
 	public static double AXLE_LENGTH = 0.271756;
@@ -312,7 +312,7 @@ public class PolyCreateControler extends Robot {
 		if (frontObjs.length > 0) {
 			CameraRecognitionObject obj = frontObjs[0];
 			double[] frontObjPos = obj.getPosition();
-			System.out.println("I saw an object on front Camera at : "+frontObjPos[0]+","+frontObjPos[1]);
+			System.out.println("I saw an object on front Camera at : "+frontObjPos[0]+","+frontObjPos[1]+","+frontObjPos[2]);
 			return frontObjPos;
 		}
 		return null;
