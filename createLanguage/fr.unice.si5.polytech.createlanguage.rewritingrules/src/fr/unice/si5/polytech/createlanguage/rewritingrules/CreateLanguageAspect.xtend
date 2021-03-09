@@ -32,6 +32,7 @@ class CreateProgramAspect {
 	@Main
 	def void entryPoint(){
 		for(ReferenceChoreography c : _self.starting_choreo){
+			System.out.println("Dans le entrypoint");
 			c.start()
 			while(c.isRunning()){
 				c.doStep()
@@ -88,6 +89,7 @@ class FiniteChoreographyAspect extends ChoreographyAspect{
 	
 	@OverrideAspectMethod
 	def void start(){
+		System.out.println("Dans le FiniteChoreo start");
 		_self.isRunning(true);
 		if(_self.instructions.size() > 0){
 			_self.currentInstruction = _self.instructions.get(0)
@@ -99,6 +101,7 @@ class FiniteChoreographyAspect extends ChoreographyAspect{
 	@Step
 	@OverrideAspectMethod
 	def void doStep(){
+		System.out.println("Dans le FiniteChoreo dostep");
 		//CreateProgramAspect.controler.flushIRReceiver();
 		//CreateProgramAspect.controler.step(CreateProgramAspect.controler.timestep);
 		//CreateProgramAspect.controler.passiveWait(CreateProgramAspect.controler.timestep);
@@ -132,6 +135,7 @@ class FiniteChoreographyAspect extends ChoreographyAspect{
 class GoForwardAspect extends ActionAspect{
 	@OverrideAspectMethod
 	def void start(){
+		System.out.println("Dans le GoForwardAspect start");
 		_self.isRunning(true);
 		if(_self.distance != -1){
 			_self.time = _self.distance / PolyCreateControler.MAX_SPEED;
@@ -143,14 +147,19 @@ class GoForwardAspect extends ActionAspect{
 	@Step
 	@OverrideAspectMethod
 	def void doStep(){
+		System.out.println("Dans le GoForwardAspect dostep");
 		if(_self.isRunning && _self.time > 0){
+			System.out.println("Dans le GoForwardAspect if running and time start, time : "+ _self.time);
 			CreateProgramAspect.controler.goForward();
+			System.out.println("Dans le GoForwardAspect goForward ok");
 			CreateProgramAspect.controler.passiveWait(Math.min(_self.time, CreateProgramAspect.step));
+			System.out.println("Dans le GoForwardAspect passiveWait ok");
 			_self.time = _self.time - Math.min(_self.time, CreateProgramAspect.step);
 			
 			if(_self.time <= 0){
 				_self.isRunning(false);
 			}
+			System.out.println("Dans le GoForwardAspect if running and time end");
 		}
 	}
 }
@@ -243,6 +252,7 @@ class GrabInFrontAspect extends ActionAspect{
 	
 	@OverrideAspectMethod
 	def void start(){
+		System.out.println("Dans le grabinfront strat");
 		_self.isRunning(true)
 		_self.stopped = false;
 		_self.turned = false;
@@ -253,6 +263,7 @@ class GrabInFrontAspect extends ActionAspect{
 	
 	@OverrideAspectMethod
 	def void doStep(){
+		System.out.println("Dans le grabinfront dostep");
 		if(!_self.stopped){
 			_self.stop()
 		} else if(!_self.turned){
@@ -326,6 +337,72 @@ class GrabInFrontAspect extends ActionAspect{
 
 @Aspect(className = ReleaseInFront)
 class ReleaseInFrontAspect extends ActionAspect{
+	
+	private var Boolean stopped = false;
+	private var Boolean turned = false;
+	private var Boolean opened = false;
+	private var Boolean wentForward = false;
+	private var Boolean closed = false;
+	
+	@OverrideAspectMethod
+	def void start(){
+		_self.isRunning(true)
+		_self.stopped = false;
+		_self.turned = false;
+		_self.opened = false;
+		_self.wentForward = false;
+		_self.closed = false;
+	}
+	
+	@OverrideAspectMethod
+	def void doStep(){
+		if(!_self.stopped){
+			_self.stop()
+		} else if(!_self.turned){
+			_self.turn()
+		} else if(!_self.opened){
+			_self.openGripper()
+		} else if(!_self.wentForward){
+			_self.goForward()
+		} else if(!_self.closed){
+			_self.closeGripper()
+		} else {
+			_self.isRunning(false);
+		}
+	}
+	
+	def void stop(){
+		CreateProgramAspect.controler.stop();
+		CreateProgramAspect.controler.passiveWait(0.5);
+		_self.stopped(true)
+	}
+	
+	def void turn(){
+		var Double time = 180 / (PolyCreateControler.HALF_SPEED*12.1);
+		CreateProgramAspect.controler.turnDuringCertainTime(time, true);
+		_self.turned(true)
+	}
+	
+	def void openGripper(){
+		CreateProgramAspect.controler.openGripper();
+		CreateProgramAspect.controler.passiveWait(0.5);
+		_self.opened(true)
+	}
+	
+	def void goForward(){
+		_self.stopped(false)
+		CreateProgramAspect.controler.goForward();
+		CreateProgramAspect.controler.passiveWait(1.19);
+		_self.wentForward(true)
+	}
+	
+	def void closeGripper(){
+		_self.stopped(false)
+		CreateProgramAspect.controler.closeGripper();
+		CreateProgramAspect.controler.passiveWait(0.5);
+		_self.closed(true)
+	}
+	
 	/*@Step
 	@OverrideAspectMethod
 	def void execute(){
@@ -354,6 +431,7 @@ class ReleaseInFrontAspect extends ActionAspect{
 class InterruptionAspect{
 	@Step
 	def boolean isConditionsValid(){
+		System.out.println("Dans le Interruption condition valid strat");
 		var isConditionsValid = true;
 		var i = 0;
 		while(isConditionsValid && i < _self.conditions.size()){
@@ -363,6 +441,7 @@ class InterruptionAspect{
 			}
 			i++;
 		}
+		System.out.println("Dans le Interruption condition valid end");
 		return isConditionsValid;
 	}
 	@Step
@@ -411,7 +490,45 @@ class ObjectFoundAspect extends ConditionAspect{
 	}
 }
 
-/* 
+@Aspect(className = ObstacleFoundLeft)
+class ObstacleFoundLeftAspect extends ConditionAspect{
+	@Step
+	@OverrideAspectMethod
+	def void check(){
+		_self.isValid(false);
+		if (CreateProgramAspect.controler.isThereCollisionAtLeft() || CreateProgramAspect.controler.isThereCliffAtRight()) {
+			System.out.println("Left obstacle detected\n");
+			_self.isValid(false);
+		}
+	}
+}
+
+@Aspect(className = ObstacleFoundRight)
+class ObstacleFoundRightAspect extends ConditionAspect{
+	@Step
+	@OverrideAspectMethod
+	def void check(){
+		_self.isValid(false);
+		if (CreateProgramAspect.controler.isThereCollisionAtRight() || CreateProgramAspect.controler.isThereCliffAtLeft()) {
+			System.out.println("Right obstacle detected\n");
+			_self.isValid(false);
+		}
+	}
+}
+
+@Aspect(className = VirtualWallFound)
+class VirtualWallFoundAspect extends ConditionAspect{
+	@Step
+	@OverrideAspectMethod
+	def void check(){
+		_self.isValid(false);
+		if (CreateProgramAspect.controler.isThereVirtualwall()) {
+			System.out.println("Virtual wall detected\n");
+			_self.isValid(false);
+		}
+	}
+}
+ 
 
 @Aspect(className = GoToClosestObject)
 class GoToClosestObjectAspect extends ActionAspect{
@@ -424,15 +541,14 @@ class GoToClosestObjectAspect extends ActionAspect{
         return Math.sqrt(_self.sqr(y2 - y1) + _self.sqr(x2 - x1));
     }
 	
-	@Step
 	@OverrideAspectMethod
-	def void execute(){
+	def void doStep(){
 		
 		CreateProgramAspect.controler.stop();
 		CreateProgramAspect.controler.passiveWait(0.5);
 		
 		if (CreateProgramAspect.controler.frontCamera.getCameraRecognitionObjects().length > 0) {
-			val double[] frontObjPos = CreateProgramAspect.controler.frontCamera.getCameraRecognitionObjects().get(0).getPosition();
+			/*val double[] frontObjPos = CreateProgramAspect.controler.frontCamera.getCameraRecognitionObjects().get(0).getPosition();
 			val double[] frontObjOri = CreateProgramAspect.controler.frontCamera.getCameraRecognitionObjects().get(0).getOrientation();
 			
 			System.out.println("I saw an object on front Camera at : "+ frontObjPos.get(0) +","+ frontObjPos.get(1));
@@ -445,11 +561,41 @@ class GoToClosestObjectAspect extends ActionAspect{
 			val time = distance / PolyCreateControler.MAX_SPEED;
 			
 			CreateProgramAspect.controler.goForward();
-			CreateProgramAspect.controler.passiveWait(time);
+			CreateProgramAspect.controler.passiveWait(time);*/
+			
+			val double[] frontObjPos = CreateProgramAspect.controler.frontCamera.getCameraRecognitionObjects().get(0).getPosition();
+			val double[] robotPos =  CreateProgramAspect.controler.getPosition();
+			
+			val lat1 = robotPos.get(0);
+			val lon1 = robotPos.get(1);
+			
+			val lat2 = frontObjPos.get(0);
+			val lon2 = frontObjPos.get(1);
+			
+			val int R = 6371000; // metres
+			val φ1 = lat1 * Math.PI/180; // φ, λ in radians
+			val φ2 = lat2 * Math.PI/180;
+			val Δφ = (lat2-lat1) * Math.PI/180;
+			val Δλ = (lon2-lon1) * Math.PI/180;
+			
+			val a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
+			          Math.cos(φ1) * Math.cos(φ2) *
+			          Math.sin(Δλ/2) * Math.sin(Δλ/2);
+			val c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+			
+			System.out.println("angle obtenu (rad) : "+ c);
+			
+			CreateProgramAspect.controler.turn(c);
+			
+			/*val distance = _self.distance(robotPos.get(0), robotPos.get(1), frontObjPos.get(0), frontObjPos.get(1));
+			val time = distance / PolyCreateControler.MAX_SPEED;
+			
+			CreateProgramAspect.controler.goForward();
+			CreateProgramAspect.controler.passiveWait(time);*/
 		}
 		
 		
 		CreateProgramAspect.controler.flushIRReceiver();
 		CreateProgramAspect.controler.step(CreateProgramAspect.controler.timestep);
 	}
-}*/
+}

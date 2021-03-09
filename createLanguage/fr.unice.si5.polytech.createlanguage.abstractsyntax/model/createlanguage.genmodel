@@ -57,5 +57,8 @@
     <genClasses image="false" ecoreClass="createlanguage.ecore#//ReferenceChoreography">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference createlanguage.ecore#//ReferenceChoreography/choreography"/>
     </genClasses>
+    <genClasses ecoreClass="createlanguage.ecore#//ObstacleFoundLeft"/>
+    <genClasses ecoreClass="createlanguage.ecore#//ObstacleFoundRight"/>
+    <genClasses ecoreClass="createlanguage.ecore#//VirtualWallFound"/>
   </genPackages>
 </genmodel:GenModel>

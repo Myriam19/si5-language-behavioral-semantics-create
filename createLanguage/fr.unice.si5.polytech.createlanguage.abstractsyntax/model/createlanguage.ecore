@@ -60,4 +60,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="choreography" lowerBound="1"
         eType="#//Choreography"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ObstacleFoundLeft" eSuperTypes="#//Condition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ObstacleFoundRight" eSuperTypes="#//Condition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VirtualWallFound" eSuperTypes="#//Condition"/>
 </ecore:EPackage>

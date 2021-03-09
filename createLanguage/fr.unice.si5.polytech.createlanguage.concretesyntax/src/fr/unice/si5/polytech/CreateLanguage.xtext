@@ -19,8 +19,7 @@ Action returns Action:
 	GoForward | GoBackward | Rotate | Stop | GrabInFront | ReleaseInFront | GoToClosestObject;
 
 Condition returns Condition:
-	ObjectFound;
-
+	ObjectFound | ObstacleFoundLeft | ObstacleFoundRight | VirtualWallFound;
 
 Instruction returns Instruction:
 	Choreography | Action | ReferenceChoreography;
@@ -63,6 +62,21 @@ ReferenceChoreography returns ReferenceChoreography:
 ObjectFound returns ObjectFound:
 	{ObjectFound}
 	'ObjectFound' 'at' distance=Eint 'cm'
+	;
+	
+ObstacleFoundLeft returns ObstacleFoundLeft:
+	{ObstacleFoundLeft}
+	'ObstacleFoundLeft'
+	;
+		
+ObstacleFoundRight returns ObstacleFoundRight:
+	{ObstacleFoundRight}
+	'ObstacleFoundRight'
+	;
+	
+VirtualWallFound returns VirtualWallFound:
+	{VirtualWallFound}
+	'VirtualWallFound'
 	;
 
 GoForward returns GoForward:
