@@ -66,6 +66,5 @@ CreateProgram prog1 {
 			outCondition : ObjectFound at 10 cm
 		}
 	}
-
 	starting_choreo : test, test1, loop
 }

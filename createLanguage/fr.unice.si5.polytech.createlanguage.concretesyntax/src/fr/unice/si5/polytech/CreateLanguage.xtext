@@ -22,8 +22,7 @@ Action returns Action:
 	GoForward | GoBackward | Rotate | Stop | GrabInFront | ReleaseInFront | GoToClosestObject;
 
 Condition returns Condition:
-	BooleanEvent | AndCondition | OrCondition
-;
+	BooleanEvent | AndCondition | OrCondition;
 	
 BooleanEvent returns BooleanEvent:
 	ObjectFound | ObstacleFoundLeft | ObstacleFoundRight | VirtualWallFound;
@@ -42,9 +41,7 @@ EString returns ecore::EString:
 
 Interruption returns Interruption:
 	{Interruption}
-	'Interruption' '(' 
-		'condition' '=' condition=Condition ',' 
-		'choreography' '=' choreography=ReferenceChoreography
+	'Interruption' '(' 'condition' '=' condition=Condition ',' 'choreography' '=' choreography=ReferenceChoreography
 	;
 
 LoopChoreography returns LoopChoreography:

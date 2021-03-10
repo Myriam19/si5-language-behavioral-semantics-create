@@ -975,7 +975,6 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_cZLVEIF_Eeu_LPx6sGOfkQ" id="(0.5,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_cZLVEYF_Eeu_LPx6sGOfkQ" id="(0.058333333333333334,0.73)"/>
         </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_sIg0kIGnEeurreJABgFBvg" type="4001" element="_MTQaYIF_Eeu_LPx6sGOfkQ" source="_Afc1IIF_Eeu_LPx6sGOfkQ" target="_vH9nB3OrEeu86u41MJt5tg">
           <children xmi:type="notation:Node" xmi:id="_sIke8IGnEeurreJABgFBvg" type="6001">
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sIke8YGnEeurreJABgFBvg" y="-10"/>
           </children>
@@ -1007,38 +1006,6 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_s58RgIGnEeurreJABgFBvg" id="(0.0,0.673469387755102)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_s58RgYGnEeurreJABgFBvg" id="(0.7666666666666667,0.84)"/>
         </edges>
-      </data>
-    </ownedAnnotationEntries>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_vHa0cHOrEeu86u41MJt5tg" name="NamedElement" tooltipText="" incomingEdges="_6H1TwHxEEeuP-fbpv66ToQ _6H7aYHxEEeuP-fbpv66ToQ" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="createlanguage.ecore#//NamedElement"/>
-      <semanticElements xmi:type="ecore:EClass" href="createlanguage.ecore#//NamedElement"/>
-      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
-      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
-      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_eguAwXPTEeuK-OtFY8vTBA" iconPath="/org.eclipse.emf.ecoretools.design/icons/full/obj16/empty.gif" description="_egsLkHPTEeuK-OtFY8vTBA" borderSize="1" borderSizeComputationExpression="1" borderColor="125,125,125" backgroundStyle="Liquid" foregroundColor="228,228,228">
-        <labelFormat>italic</labelFormat>
-      </ownedStyle>
-      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_vHrTI3OrEeu86u41MJt5tg" name="name : EString" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="createlanguage.ecore#//NamedElement/name"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="createlanguage.ecore#//NamedElement/name"/>
-        <ownedStyle xmi:type="diagram:BundledImage" uid="_vHr6MHOrEeu86u41MJt5tg" labelAlignment="LEFT">
-          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
-      </ownedElements>
-    </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_vHd3wHOrEeu86u41MJt5tg" name="CreateProgram" tooltipText="" outgoingEdges="_6HlcIHxEEeuP-fbpv66ToQ _6Hq7sHxEEeuP-fbpv66ToQ _6H1TwHxEEeuP-fbpv66ToQ" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="createlanguage.ecore#//CreateProgram"/>
-      <semanticElements xmi:type="ecore:EClass" href="createlanguage.ecore#//CreateProgram"/>
-      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
-      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
-      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_egwdAnPTEeuK-OtFY8vTBA" iconPath="/fr.unice.si5.polytech.createlanguage.abstractsyntax.edit/icons/full/obj16/CreateProgram.gif" description="_egwdAHPTEeuK-OtFY8vTBA" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216"/>
-      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-    </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_vHfF4HOrEeu86u41MJt5tg" name="Choreography" tooltipText="" outgoingEdges="_6Hriw3xEEeuP-fbpv66ToQ _6HvNIHxEEeuP-fbpv66ToQ _6H7aYHxEEeuP-fbpv66ToQ _6H8Bc3xEEeuP-fbpv66ToQ" incomingEdges="_6HlcIHxEEeuP-fbpv66ToQ _6HxpZ3xEEeuP-fbpv66ToQ _6H92oHxEEeuP-fbpv66ToQ _6H-dsHxEEeuP-fbpv66ToQ" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="createlanguage.ecore#//Choreography"/>
       <semanticElements xmi:type="ecore:EClass" href="createlanguage.ecore#//Choreography"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
