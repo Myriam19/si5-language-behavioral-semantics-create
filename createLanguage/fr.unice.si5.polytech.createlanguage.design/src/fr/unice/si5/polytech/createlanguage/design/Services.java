@@ -6,7 +6,7 @@ import java.util.List;
 import javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction;
 
 import org.eclipse.emf.ecore.EObject;
-
+import createlanguage.xdsml.api.impl.CreateLanguageRTDAccessor;
 import fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.*;
 
 /**
@@ -93,10 +93,6 @@ public class Services {
 			conditionString += "Right obstacle found";
 		} else if(c.getAndConditions().get(0) instanceof VirtualWallFound) {
 			conditionString += "Virtual wall found";
-		} else if(c.getAndConditions().get(0) instanceof AndCondition) {
-			conditionString += getAndCondition((AndCondition) c.getAndConditions().get(0));
-		} else if(c.getAndConditions().get(0) instanceof OrCondition) {
-			conditionString += getOrCondition((OrCondition) c.getAndConditions().get(0));
 		}
     	
     	for (int i=1; i<c.getAndConditions().size(); i++) {
@@ -109,10 +105,6 @@ public class Services {
     			conditionString += " && Right obstacle found";
     		} else if(c.getAndConditions().get(i) instanceof VirtualWallFound) {
     			conditionString += " && Virtual wall found";
-    		} else if(c.getAndConditions().get(i) instanceof AndCondition) {
-    			conditionString += " && "+getAndCondition((AndCondition) c.getAndConditions().get(i));
-    		} else if(c.getAndConditions().get(i) instanceof OrCondition) {
-    			conditionString += " && "+getOrCondition((OrCondition) c.getAndConditions().get(i));
     		}
 		}
     	
@@ -132,10 +124,6 @@ public class Services {
 			conditionString += "Right obstacle found";
 		} else if(c.getOrConditions().get(0) instanceof VirtualWallFound) {
 			conditionString += "Virtual wall found";
-		} else if(c.getOrConditions().get(0) instanceof AndCondition) {
-			conditionString += getAndCondition((AndCondition) c.getOrConditions().get(0));
-		} else if(c.getOrConditions().get(0) instanceof OrCondition) {
-			conditionString += getOrCondition((OrCondition) c.getOrConditions().get(0));
 		}
     	
     	for (int i=1; i<c.getOrConditions().size(); i++) {
@@ -148,10 +136,6 @@ public class Services {
     			conditionString += " || Right obstacle found";
     		} else if(c.getOrConditions().get(i) instanceof VirtualWallFound) {
     			conditionString += " || Virtual wall found";
-    		} else if(c.getOrConditions().get(i) instanceof AndCondition) {
-    			conditionString += " || "+getAndCondition((AndCondition) c.getOrConditions().get(i));
-    		} else if(c.getOrConditions().get(i) instanceof OrCondition) {
-    			conditionString += " || "+getOrCondition((OrCondition) c.getOrConditions().get(i));
     		}
 		}
     	
@@ -181,8 +165,12 @@ public class Services {
     	return conditionString;
     }
     
+    public String getCurrentInstruction(LoopChoreography self) {
+    	return CreateLanguageRTDAccessor.getCurrentInstruction(self).getClass().getName();
+    }
+    
     public String getConditionString(Condition condition) {
-    	String conditionString = "";
+    	String conditionString = "Out ==> ";
     	
     	if(condition instanceof ObjectFound) {
     		ObjectFound of = (ObjectFound) condition;

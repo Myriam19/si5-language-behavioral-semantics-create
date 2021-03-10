@@ -41,7 +41,7 @@ EString returns ecore::EString:
 
 Interruption returns Interruption:
 	{Interruption}
-	'Interruption' '(' 'condition' '=' condition=Condition ',' 'choreography' '=' choreography=ReferenceChoreography
+	'Interruption' '(' 'condition' '=' condition=Condition ',' 'choreography' '=' choreography=ReferenceChoreography ')'
 	;
 
 LoopChoreography returns LoopChoreography:

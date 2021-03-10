@@ -61,7 +61,7 @@ abstract class InstructionAspect{
 
 @Aspect(className = Action)
 abstract class ActionAspect extends InstructionAspect{
-	protected var double time = 0.0;
+	public var double time = 0.0;
 }
 
 @Aspect(className = Choreography)
@@ -94,8 +94,8 @@ abstract class ReferenceChoreographyAspect extends ChoreoToRunAspect{
 
 @Aspect(className = ParalleleChoreo)
 abstract class ParalleleChoreoAspect extends ChoreoToRunAspect{
-	private var Instruction currentReferenceChoreo
-	private var int currentReferenceChoreoIndex = 0;
+	public var Instruction currentReferenceChoreo
+	public var int currentReferenceChoreoIndex = 0;
 	
 	@OverrideAspectMethod
 	def void start(){
@@ -129,9 +129,9 @@ abstract class ParalleleChoreoAspect extends ChoreoToRunAspect{
 
 @Aspect(className = FiniteChoreography)
 class FiniteChoreographyAspect extends ChoreographyAspect{
-	private var Instruction currentInstruction
-	private var int currentInstructionIndex = 0;
-	private var Boolean firstInterruptionChecked = true;
+	public var Instruction currentInstruction
+	public var int currentInstructionIndex = 0;
+	public var Boolean firstInterruptionChecked = true;
 	
 	@OverrideAspectMethod
 	def void start(){
@@ -184,9 +184,9 @@ class FiniteChoreographyAspect extends ChoreographyAspect{
 
 @Aspect(className = LoopChoreography)
 class LoopChoreographyAspect extends ChoreographyAspect{
-	private var Instruction currentInstruction
-	private var int currentInstructionIndex = 0;
-	private var Boolean firstInterruptionChecked = true;
+	public var Instruction currentInstruction
+	public var int currentInstructionIndex = 0;
+	public var Boolean firstInterruptionChecked = true;
 	
 	@OverrideAspectMethod
 	def void start(){
@@ -334,8 +334,8 @@ class StopAspect extends ActionAspect{
 
 @Aspect(className = Rotate)
 class RotateAspect extends ActionAspect{
-	private var Boolean right = false;
-	private var Double realAngle;
+	public var Boolean right = false;
+	public var Double realAngle;
 	@OverrideAspectMethod
 	def void start(){
 		_self.isRunning(true);
@@ -364,12 +364,12 @@ class RotateAspect extends ActionAspect{
 
 @Aspect(className = GrabInFront)
 class GrabInFrontAspect extends ActionAspect{
-	private var Boolean stopped = false;
-	private var Boolean turned = false;
-	private var Boolean opened = false;
-	private var Boolean wentBackward = false;
-	private var Boolean closed = false;
-	private var Boolean wentForward = false;
+	public var Boolean stopped = false;
+	public var Boolean turned = false;
+	public var Boolean opened = false;
+	public var Boolean wentBackward = false;
+	public var Boolean closed = false;
+	public var Boolean wentForward = false;
 	
 	@OverrideAspectMethod
 	def void start(){
@@ -448,11 +448,11 @@ class GrabInFrontAspect extends ActionAspect{
 @Aspect(className = ReleaseInFront)
 class ReleaseInFrontAspect extends ActionAspect{
 	
-	private var Boolean stopped = false;
-	//private var Boolean turned = false;
-	private var Boolean opened = false;
-	private var Boolean wentForward = false;
-	private var Boolean closed = false;
+	public var Boolean stopped = false;
+	//public var Boolean turned = false;
+	public var Boolean opened = false;
+	public var Boolean wentForward = false;
+	public var Boolean closed = false;
 	
 	@OverrideAspectMethod
 	def void start(){
@@ -653,10 +653,10 @@ class VirtualWallFoundAspect extends BooleanEventAspect{
 
 @Aspect(className = GoToClosestObject)
 class GoToClosestObjectAspect extends ActionAspect{
-	private double travelTime = 0.0;
-	private double angleTime = 0.0;
-	private var Boolean turned = false;
-	private var Boolean wentForward = false;
+	public double travelTime = 0.0;
+	public double angleTime = 0.0;
+	public var Boolean turned = false;
+	public var Boolean wentForward = false;
 	
 	def double sqr(double a) {
         return a*a;

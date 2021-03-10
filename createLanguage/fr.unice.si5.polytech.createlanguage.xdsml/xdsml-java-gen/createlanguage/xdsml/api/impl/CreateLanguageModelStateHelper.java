@@ -49,6 +49,20 @@ public class CreateLanguageModelStateHelper implements IK3ModelStateHelper{
 			EObject elem = allContentIt.next();
 
 			Class<?> clazz =null;
+			clazz = K3DslHelper.getTarget(fr.unice.si5.polytech.createlanguage.rewritingrules.GoToClosestObjectAspect.class);
+			if (clazz.isInstance(elem)) {
+				ElementState elemState = theFactory.createElementState();
+				elemState.setModelElement(elem);
+				res.getOwnedElementstates().add(elemState);
+				AttributeNameToValue n2v0 = new AttributeNameToValue("travelTime", CreateLanguageRTDAccessor.getTravelTime((fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.GoToClosestObject)elem));
+				elemState.getSavedRTDs().add(n2v0);
+				AttributeNameToValue n2v1 = new AttributeNameToValue("angleTime", CreateLanguageRTDAccessor.getAngleTime((fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.GoToClosestObject)elem));
+				elemState.getSavedRTDs().add(n2v1);
+				AttributeNameToValue n2v2 = new AttributeNameToValue("turned", CreateLanguageRTDAccessor.getTurned((fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.GoToClosestObject)elem));
+				elemState.getSavedRTDs().add(n2v2);
+				AttributeNameToValue n2v3 = new AttributeNameToValue("wentForward", CreateLanguageRTDAccessor.getWentForward((fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.GoToClosestObject)elem));
+				elemState.getSavedRTDs().add(n2v3);
+			}
 			clazz = K3DslHelper.getTarget(fr.unice.si5.polytech.createlanguage.rewritingrules.ConditionAspect.class);
 			if (clazz.isInstance(elem)) {
 				ElementState elemState = theFactory.createElementState();
