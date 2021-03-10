@@ -13,9 +13,9 @@ CreateProgram prog1 {
 		FiniteChoreography test {
 			interruptions {
 				Interruption {
-					choreography grabObject
+					choreography gotoobject
 					conditions {
-						ObjectFound at 5 cm
+						ObjectFound at 50 cm
 					}
 				}/*,
 				Interruption {
@@ -52,8 +52,7 @@ CreateProgram prog1 {
 		
 		FiniteChoreography gotoobject {
 			instructions {
-				GoToClosestObject,
-				GoForward 3 s
+				GoToClosestObject
 				/*ReleaseInFront*/
 			}
 		},
@@ -69,5 +68,5 @@ CreateProgram prog1 {
 	}
 	
 	
-	starting_choreo : loop
+	starting_choreo : test
 }
