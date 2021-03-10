@@ -33,6 +33,24 @@ public class CreateLanguageRTDAccessor {
 	public static boolean setFirstInterruptionChecked(fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.FiniteChoreography eObject, java.lang.Boolean newValue) {
 		return setAspectProperty(eObject, "fr.unice.si5.polytech.createlanguage.CreateLanguage", "fr.unice.si5.polytech.createlanguage.rewritingrules.FiniteChoreographyAspect", "firstInterruptionChecked", newValue);
 	}
+	public static fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.Instruction getCurrentInstruction(fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.LoopChoreography eObject) {
+		return (fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.Instruction)  getAspectProperty(eObject, "fr.unice.si5.polytech.createlanguage.CreateLanguage", "fr.unice.si5.polytech.createlanguage.rewritingrules.LoopChoreographyAspect", "currentInstruction");
+	}
+	public static boolean setCurrentInstruction(fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.LoopChoreography eObject, fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.Instruction newValue) {
+		return setAspectProperty(eObject, "fr.unice.si5.polytech.createlanguage.CreateLanguage", "fr.unice.si5.polytech.createlanguage.rewritingrules.LoopChoreographyAspect", "currentInstruction", newValue);
+	}
+	public static int getCurrentInstructionIndex(fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.LoopChoreography eObject) {
+		return (int)  getAspectProperty(eObject, "fr.unice.si5.polytech.createlanguage.CreateLanguage", "fr.unice.si5.polytech.createlanguage.rewritingrules.LoopChoreographyAspect", "currentInstructionIndex");
+	}
+	public static boolean setCurrentInstructionIndex(fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.LoopChoreography eObject, int newValue) {
+		return setAspectProperty(eObject, "fr.unice.si5.polytech.createlanguage.CreateLanguage", "fr.unice.si5.polytech.createlanguage.rewritingrules.LoopChoreographyAspect", "currentInstructionIndex", newValue);
+	}
+	public static java.lang.Boolean getFirstInterruptionChecked(fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.LoopChoreography eObject) {
+		return (java.lang.Boolean)  getAspectProperty(eObject, "fr.unice.si5.polytech.createlanguage.CreateLanguage", "fr.unice.si5.polytech.createlanguage.rewritingrules.LoopChoreographyAspect", "firstInterruptionChecked");
+	}
+	public static boolean setFirstInterruptionChecked(fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.LoopChoreography eObject, java.lang.Boolean newValue) {
+		return setAspectProperty(eObject, "fr.unice.si5.polytech.createlanguage.CreateLanguage", "fr.unice.si5.polytech.createlanguage.rewritingrules.LoopChoreographyAspect", "firstInterruptionChecked", newValue);
+	}
 	public static java.lang.Boolean getIsRunning(fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.Instruction eObject) {
 		return (java.lang.Boolean)  getAspectProperty(eObject, "fr.unice.si5.polytech.createlanguage.CreateLanguage", "fr.unice.si5.polytech.createlanguage.rewritingrules.InstructionAspect", "isRunning");
 	}
@@ -62,12 +80,6 @@ public class CreateLanguageRTDAccessor {
 	}
 	public static boolean setStopped(fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.ReleaseInFront eObject, java.lang.Boolean newValue) {
 		return setAspectProperty(eObject, "fr.unice.si5.polytech.createlanguage.CreateLanguage", "fr.unice.si5.polytech.createlanguage.rewritingrules.ReleaseInFrontAspect", "stopped", newValue);
-	}
-	public static java.lang.Boolean getTurned(fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.ReleaseInFront eObject) {
-		return (java.lang.Boolean)  getAspectProperty(eObject, "fr.unice.si5.polytech.createlanguage.CreateLanguage", "fr.unice.si5.polytech.createlanguage.rewritingrules.ReleaseInFrontAspect", "turned");
-	}
-	public static boolean setTurned(fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.ReleaseInFront eObject, java.lang.Boolean newValue) {
-		return setAspectProperty(eObject, "fr.unice.si5.polytech.createlanguage.CreateLanguage", "fr.unice.si5.polytech.createlanguage.rewritingrules.ReleaseInFrontAspect", "turned", newValue);
 	}
 	public static java.lang.Boolean getOpened(fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.ReleaseInFront eObject) {
 		return (java.lang.Boolean)  getAspectProperty(eObject, "fr.unice.si5.polytech.createlanguage.CreateLanguage", "fr.unice.si5.polytech.createlanguage.rewritingrules.ReleaseInFrontAspect", "opened");

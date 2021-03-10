@@ -30,13 +30,13 @@
         defaultValueLiteral="-1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Interruption">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="conditions" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
         eType="#//Condition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="choreography" lowerBound="1"
         eType="#//ReferenceChoreography" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Condition" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ObjectFound" eSuperTypes="#//Condition">
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanEvent" abstract="true" eSuperTypes="#//Condition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectFound" eSuperTypes="#//BooleanEvent">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="distance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Instruction" abstract="true"/>
@@ -62,12 +62,21 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="choreography" lowerBound="1"
         eType="#//Choreography"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ObstacleFoundLeft" eSuperTypes="#//Condition"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ObstacleFoundRight" eSuperTypes="#//Condition"/>
-  <eClassifiers xsi:type="ecore:EClass" name="VirtualWallFound" eSuperTypes="#//Condition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ObstacleFoundLeft" eSuperTypes="#//BooleanEvent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ObstacleFoundRight" eSuperTypes="#//BooleanEvent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VirtualWallFound" eSuperTypes="#//BooleanEvent"/>
   <eClassifiers xsi:type="ecore:EClass" name="ChoreoToRun" abstract="true" eSuperTypes="#//Instruction"/>
   <eClassifiers xsi:type="ecore:EClass" name="ParalleleChoreo" eSuperTypes="#//ChoreoToRun">
     <eStructuralFeatures xsi:type="ecore:EReference" name="referenceChoreographies"
         upperBound="-1" eType="#//ReferenceChoreography" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Condition" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AndCondition" eSuperTypes="#//Condition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="andConditions" lowerBound="2"
+        upperBound="-1" eType="#//Condition" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OrCondition" eSuperTypes="#//Condition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="orConditions" lowerBound="2"
+        upperBound="-1" eType="#//Condition" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -82,14 +82,12 @@ public class CreateLanguageModelStateHelper implements IK3ModelStateHelper{
 				res.getOwnedElementstates().add(elemState);
 				AttributeNameToValue n2v0 = new AttributeNameToValue("stopped", CreateLanguageRTDAccessor.getStopped((fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.ReleaseInFront)elem));
 				elemState.getSavedRTDs().add(n2v0);
-				AttributeNameToValue n2v1 = new AttributeNameToValue("turned", CreateLanguageRTDAccessor.getTurned((fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.ReleaseInFront)elem));
+				AttributeNameToValue n2v1 = new AttributeNameToValue("opened", CreateLanguageRTDAccessor.getOpened((fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.ReleaseInFront)elem));
 				elemState.getSavedRTDs().add(n2v1);
-				AttributeNameToValue n2v2 = new AttributeNameToValue("opened", CreateLanguageRTDAccessor.getOpened((fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.ReleaseInFront)elem));
+				AttributeNameToValue n2v2 = new AttributeNameToValue("wentForward", CreateLanguageRTDAccessor.getWentForward((fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.ReleaseInFront)elem));
 				elemState.getSavedRTDs().add(n2v2);
-				AttributeNameToValue n2v3 = new AttributeNameToValue("wentForward", CreateLanguageRTDAccessor.getWentForward((fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.ReleaseInFront)elem));
+				AttributeNameToValue n2v3 = new AttributeNameToValue("closed", CreateLanguageRTDAccessor.getClosed((fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.ReleaseInFront)elem));
 				elemState.getSavedRTDs().add(n2v3);
-				AttributeNameToValue n2v4 = new AttributeNameToValue("closed", CreateLanguageRTDAccessor.getClosed((fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.ReleaseInFront)elem));
-				elemState.getSavedRTDs().add(n2v4);
 			}
 			clazz = K3DslHelper.getTarget(fr.unice.si5.polytech.createlanguage.rewritingrules.FiniteChoreographyAspect.class);
 			if (clazz.isInstance(elem)) {
@@ -101,6 +99,18 @@ public class CreateLanguageModelStateHelper implements IK3ModelStateHelper{
 				AttributeNameToValue n2v1 = new AttributeNameToValue("currentInstructionIndex", CreateLanguageRTDAccessor.getCurrentInstructionIndex((fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.FiniteChoreography)elem));
 				elemState.getSavedRTDs().add(n2v1);
 				AttributeNameToValue n2v2 = new AttributeNameToValue("firstInterruptionChecked", CreateLanguageRTDAccessor.getFirstInterruptionChecked((fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.FiniteChoreography)elem));
+				elemState.getSavedRTDs().add(n2v2);
+			}
+			clazz = K3DslHelper.getTarget(fr.unice.si5.polytech.createlanguage.rewritingrules.LoopChoreographyAspect.class);
+			if (clazz.isInstance(elem)) {
+				ElementState elemState = theFactory.createElementState();
+				elemState.setModelElement(elem);
+				res.getOwnedElementstates().add(elemState);
+				AttributeNameToValue n2v0 = new AttributeNameToValue("currentInstruction", CreateLanguageRTDAccessor.getCurrentInstruction((fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.LoopChoreography)elem));
+				elemState.getSavedRTDs().add(n2v0);
+				AttributeNameToValue n2v1 = new AttributeNameToValue("currentInstructionIndex", CreateLanguageRTDAccessor.getCurrentInstructionIndex((fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.LoopChoreography)elem));
+				elemState.getSavedRTDs().add(n2v1);
+				AttributeNameToValue n2v2 = new AttributeNameToValue("firstInterruptionChecked", CreateLanguageRTDAccessor.getFirstInterruptionChecked((fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.LoopChoreography)elem));
 				elemState.getSavedRTDs().add(n2v2);
 			}
 			clazz = K3DslHelper.getTarget(fr.unice.si5.polytech.createlanguage.rewritingrules.InstructionAspect.class);

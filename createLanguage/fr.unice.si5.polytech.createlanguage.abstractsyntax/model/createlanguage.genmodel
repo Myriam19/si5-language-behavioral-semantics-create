@@ -33,10 +33,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute createlanguage.ecore#//GoForward/duration"/>
     </genClasses>
     <genClasses ecoreClass="createlanguage.ecore#//Interruption">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference createlanguage.ecore#//Interruption/conditions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference createlanguage.ecore#//Interruption/condition"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference createlanguage.ecore#//Interruption/choreography"/>
     </genClasses>
-    <genClasses ecoreClass="createlanguage.ecore#//Condition"/>
+    <genClasses ecoreClass="createlanguage.ecore#//BooleanEvent"/>
     <genClasses ecoreClass="createlanguage.ecore#//ObjectFound">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute createlanguage.ecore#//ObjectFound/distance"/>
     </genClasses>
@@ -65,6 +65,13 @@
     <genClasses ecoreClass="createlanguage.ecore#//ChoreoToRun"/>
     <genClasses ecoreClass="createlanguage.ecore#//ParalleleChoreo">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference createlanguage.ecore#//ParalleleChoreo/referenceChoreographies"/>
+    </genClasses>
+    <genClasses ecoreClass="createlanguage.ecore#//Condition"/>
+    <genClasses ecoreClass="createlanguage.ecore#//AndCondition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference createlanguage.ecore#//AndCondition/andConditions"/>
+    </genClasses>
+    <genClasses ecoreClass="createlanguage.ecore#//OrCondition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference createlanguage.ecore#//OrCondition/orConditions"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
