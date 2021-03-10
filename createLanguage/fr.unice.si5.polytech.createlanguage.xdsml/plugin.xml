@@ -5,6 +5,6 @@
     <XDSML_Definition name="fr.unice.si5.polytech.createlanguage.CreateLanguage" xdsmlFilePath="/fr.unice.si5.polytech.createlanguage.xdsml/CreateLanguage.dsl" modelLoader_class="org.eclipse.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" />
   </extension>
   <extension point="org.eclipse.gemoc.gemoc_language_workbench.moccml.xdsml.addition">
-    <MOCCML_XDSML_Addition name="fr.unice.si5.polytech.createlanguage.CreateLanguage" referencedXDSMLName="fr.unice.si5.polytech.createlanguage.CreateLanguage" codeExecutor_class="createlanguage.xdsml.api.impl.CreateLanguageCodeExecutor" solver_class="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.moc.impl.CcslSolver" toCCSLQVTOFilePath="" />
+    <MOCCML_XDSML_Addition name="fr.unice.si5.polytech.createlanguage.CreateLanguage" referencedXDSMLName="fr.unice.si5.polytech.createlanguage.CreateLanguage" codeExecutor_class="createlanguage.xdsml.api.impl.CreateLanguageCodeExecutor" solver_class="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.moc.impl.CcslSolver" toCCSLQVTOFilePath="/fr.unice.si5.polytech.createlanguage.moccml/qvto-gen/modeling/xCreateLanguage.qvto" />
   </extension>
 </plugin>

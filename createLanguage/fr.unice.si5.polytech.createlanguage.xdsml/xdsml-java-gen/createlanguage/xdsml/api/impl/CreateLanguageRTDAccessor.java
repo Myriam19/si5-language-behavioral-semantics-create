@@ -135,6 +135,30 @@ public class CreateLanguageRTDAccessor {
 	public static boolean setWentForward(fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.GrabInFront eObject, java.lang.Boolean newValue) {
 		return setAspectProperty(eObject, "fr.unice.si5.polytech.createlanguage.CreateLanguage", "fr.unice.si5.polytech.createlanguage.rewritingrules.GrabInFrontAspect", "wentForward", newValue);
 	}
+	public static double getTravelTime(fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.GoToClosestObject eObject) {
+		return (double)  getAspectProperty(eObject, "fr.unice.si5.polytech.createlanguage.CreateLanguage", "fr.unice.si5.polytech.createlanguage.rewritingrules.GoToClosestObjectAspect", "travelTime");
+	}
+	public static boolean setTravelTime(fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.GoToClosestObject eObject, double newValue) {
+		return setAspectProperty(eObject, "fr.unice.si5.polytech.createlanguage.CreateLanguage", "fr.unice.si5.polytech.createlanguage.rewritingrules.GoToClosestObjectAspect", "travelTime", newValue);
+	}
+	public static double getAngleTime(fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.GoToClosestObject eObject) {
+		return (double)  getAspectProperty(eObject, "fr.unice.si5.polytech.createlanguage.CreateLanguage", "fr.unice.si5.polytech.createlanguage.rewritingrules.GoToClosestObjectAspect", "angleTime");
+	}
+	public static boolean setAngleTime(fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.GoToClosestObject eObject, double newValue) {
+		return setAspectProperty(eObject, "fr.unice.si5.polytech.createlanguage.CreateLanguage", "fr.unice.si5.polytech.createlanguage.rewritingrules.GoToClosestObjectAspect", "angleTime", newValue);
+	}
+	public static java.lang.Boolean getTurned(fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.GoToClosestObject eObject) {
+		return (java.lang.Boolean)  getAspectProperty(eObject, "fr.unice.si5.polytech.createlanguage.CreateLanguage", "fr.unice.si5.polytech.createlanguage.rewritingrules.GoToClosestObjectAspect", "turned");
+	}
+	public static boolean setTurned(fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.GoToClosestObject eObject, java.lang.Boolean newValue) {
+		return setAspectProperty(eObject, "fr.unice.si5.polytech.createlanguage.CreateLanguage", "fr.unice.si5.polytech.createlanguage.rewritingrules.GoToClosestObjectAspect", "turned", newValue);
+	}
+	public static java.lang.Boolean getWentForward(fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.GoToClosestObject eObject) {
+		return (java.lang.Boolean)  getAspectProperty(eObject, "fr.unice.si5.polytech.createlanguage.CreateLanguage", "fr.unice.si5.polytech.createlanguage.rewritingrules.GoToClosestObjectAspect", "wentForward");
+	}
+	public static boolean setWentForward(fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.GoToClosestObject eObject, java.lang.Boolean newValue) {
+		return setAspectProperty(eObject, "fr.unice.si5.polytech.createlanguage.CreateLanguage", "fr.unice.si5.polytech.createlanguage.rewritingrules.GoToClosestObjectAspect", "wentForward", newValue);
+	}
 	public static fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.Instruction getCurrentReferenceChoreo(fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.ParalleleChoreo eObject) {
 		return (fr.unice.si5.polytech.createlanguage.abstractsyntax.createlanguage.Instruction)  getAspectProperty(eObject, "fr.unice.si5.polytech.createlanguage.CreateLanguage", "fr.unice.si5.polytech.createlanguage.rewritingrules.ParalleleChoreoAspect", "currentReferenceChoreo");
 	}
