@@ -1,6 +1,6 @@
-# Create Language Design
+# Syntaxe concrète graphique
 
-Ce module décrit l'ensemble de la syntaxe concrète graphique 
+En plus d'une syntaxe textuelle, le développeur a également accès à une syntaxe graphique qui represente visuellement l'ensemble du programme souhaité, et lui permettant ainsi d'avoir une meilleure lisibilité sur le programme et les différentes actions qui seront exécutées
 
 ### Représentation graphique
 
