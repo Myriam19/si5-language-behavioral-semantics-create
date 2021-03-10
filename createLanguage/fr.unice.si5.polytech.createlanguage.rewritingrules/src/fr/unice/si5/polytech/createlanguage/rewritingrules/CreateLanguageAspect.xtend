@@ -158,7 +158,7 @@ class FiniteChoreographyAspect extends ChoreographyAspect{
 				_self.firstInterruptionChecked(false)
 			} else {
 				for(Interruption i : _self.interruptions){
-					if(i.isConditionsValid()){
+					if(i.isConditionValid()){
 						i.execute()
 					}
 				}
@@ -213,7 +213,7 @@ class LoopChoreographyAspect extends ChoreographyAspect{
 				_self.firstInterruptionChecked(false)
 			} else {
 				for(Interruption i : _self.interruptions){
-					if(i.isConditionsValid()){
+					if(i.isConditionValid()){
 						i.execute()
 					}
 				}
@@ -449,7 +449,7 @@ class GrabInFrontAspect extends ActionAspect{
 class ReleaseInFrontAspect extends ActionAspect{
 	
 	private var Boolean stopped = false;
-	private var Boolean turned = false;
+	//private var Boolean turned = false;
 	private var Boolean opened = false;
 	private var Boolean wentForward = false;
 	private var Boolean closed = false;
@@ -458,7 +458,7 @@ class ReleaseInFrontAspect extends ActionAspect{
 	def void start(){
 		_self.isRunning(true)
 		_self.stopped = false;
-		_self.turned = false;
+		//_self.turned = false;
 		_self.opened = false;
 		_self.wentForward = false;
 		_self.closed = false;
@@ -468,9 +468,10 @@ class ReleaseInFrontAspect extends ActionAspect{
 	def void doStep(){
 		if(!_self.stopped){
 			_self.stop()
-		} else if(!_self.turned){
+		} /*else if(!_self.turned){
 			_self.turn()
-		} else if(!_self.opened){
+		} */
+		else if(!_self.opened){
 			_self.openGripper()
 		} else if(!_self.wentForward){
 			_self.goForward()
@@ -487,11 +488,11 @@ class ReleaseInFrontAspect extends ActionAspect{
 		_self.stopped(true)
 	}
 	
-	def void turn(){
+	/*def void turn(){
 		var Double time = 180 / (PolyCreateControler.HALF_SPEED*12.1);
 		CreateProgramAspect.controler.turnDuringCertainTime(time, true);
 		_self.turned(true)
-	}
+	}*/
 	
 	def void openGripper(){
 		CreateProgramAspect.controler.openGripper();
@@ -511,47 +512,16 @@ class ReleaseInFrontAspect extends ActionAspect{
 		CreateProgramAspect.controler.passiveWait(0.5);
 		_self.closed(true)
 	}
-	
-	/*@Step
-	@OverrideAspectMethod
-	def void execute(){
-		
-		CreateProgramAspect.controler.stop();
-		CreateProgramAspect.controler.passiveWait(0.5);
-		
-		CreateProgramAspect.controler.openGripper();
-		CreateProgramAspect.controler.passiveWait(0.5);
-		
-		CreateProgramAspect.controler.goForward();
-		CreateProgramAspect.controler.passiveWait(0.5);
-		
-		CreateProgramAspect.controler.stop();
-		CreateProgramAspect.controler.passiveWait(0.5);
-		
-		CreateProgramAspect.controler.closeGripper();
-		CreateProgramAspect.controler.passiveWait(0.5);
-		
-		CreateProgramAspect.controler.flushIRReceiver();
-		CreateProgramAspect.controler.step(CreateProgramAspect.controler.timestep);
-	}*/
 }
 
 @Aspect(className = Interruption)
 class InterruptionAspect{
 	@Step
-	def boolean isConditionsValid(){
+	def boolean isConditionValid(){
 		//System.out.println("Dans le Interruption condition valid strat");
-		var isConditionsValid = true;
-		var i = 0;
-		while(isConditionsValid && i < _self.conditions.size()){
-			_self.conditions.get(i).check();
-			if(!_self.conditions.get(i).isValid()){
-				isConditionsValid = false;
-			}
-			i++;
-		}
+		_self.condition.check()
 		//System.out.println("Dans le Interruption condition valid end");
-		return isConditionsValid;
+		return _self.condition.isValid();
 	}
 	@Step
 	def void execute(){		
@@ -571,8 +541,49 @@ abstract class ConditionAspect{
 	abstract def void check()
 }
 
+@Aspect(className = BooleanEvent)
+abstract class BooleanEventAspect extends ConditionAspect{
+	@Step
+	@OverrideAspectMethod
+	abstract def void check()
+}
+
+@Aspect(className = AndCondition)
+class AndConditionAspect extends ConditionAspect{
+	@Step
+	@OverrideAspectMethod
+	def void check(){
+		var isConditionsValid = true;
+		var i = 0;
+		while(isConditionsValid && i < _self.andConditions.size()){
+			_self.andConditions.get(i).check();
+			if(!_self.andConditions.get(i).isValid()){
+				isConditionsValid = false;
+			}
+			i++;
+		}
+	}
+}
+
+@Aspect(className = OrCondition)
+class OrConditionAspect extends ConditionAspect{
+	@Step
+	@OverrideAspectMethod
+	def void check(){
+		var isConditionsValid = false;
+		var i = 0;
+		while(!isConditionsValid && i < _self.orConditions.size()){
+			_self.orConditions.get(i).check();
+			if(_self.orConditions.get(i).isValid()){
+				isConditionsValid = true;
+			}
+			i++;
+		}
+	}
+}
+
 @Aspect(className = ObjectFound)
-class ObjectFoundAspect extends ConditionAspect{
+class ObjectFoundAspect extends BooleanEventAspect{
 	def double sqr(double a) {
         return a*a;
     }
@@ -601,20 +612,20 @@ class ObjectFoundAspect extends ConditionAspect{
 }
 
 @Aspect(className = ObstacleFoundLeft)
-class ObstacleFoundLeftAspect extends ConditionAspect{
+class ObstacleFoundLeftAspect extends BooleanEventAspect{
 	@Step
 	@OverrideAspectMethod
 	def void check(){
 		_self.isValid(false);
 		if (CreateProgramAspect.controler.isThereCollisionAtLeft() || CreateProgramAspect.controler.isThereCliffAtLeft()) {
-			System.out.println("Left obstacle detected ("+CreateProgramAspect.controler.isThereCollisionAtLeft()+" / "+CreateProgramAspect.controler.isThereCliffAtLeft()+"\n");
+			System.out.println("Left obstacle detected\n");
 			_self.isValid(true);
 		}
 	}
 }
 
 @Aspect(className = ObstacleFoundRight)
-class ObstacleFoundRightAspect extends ConditionAspect{
+class ObstacleFoundRightAspect extends BooleanEventAspect{
 	@Step
 	@OverrideAspectMethod
 	def void check(){
@@ -627,7 +638,7 @@ class ObstacleFoundRightAspect extends ConditionAspect{
 }
 
 @Aspect(className = VirtualWallFound)
-class VirtualWallFoundAspect extends ConditionAspect{
+class VirtualWallFoundAspect extends BooleanEventAspect{
 	@Step
 	@OverrideAspectMethod
 	def void check(){

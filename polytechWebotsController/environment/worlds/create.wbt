@@ -10,8 +10,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation -0.6293662479980008 -0.7093712885405787 -0.31731766555803054 1.2358094156824266
-  position -5.231434634965602 6.124222074719198 4.3195517183482925
+  orientation -0.9140949435898413 -0.36676898407925473 -0.17294781415489568 0.9525086257039086
+  position 1.5344257649344462 7.550829500001416 6.026743745143473
   near 0.1
   follow "Create"
 }
@@ -91,7 +91,7 @@ Table {
   translation 3.86254 0 3.28632
 }
 Solid {
-  translation 0.98 0 2.57
+  translation 3.49 0 -0.61
   children [
     Shape {
       appearance PBRAppearance {
@@ -210,7 +210,7 @@ CreateWall {
   rotation 0 1 0 1.5708
 }
 DEF IROBOT_CREATE Create {
-  translation -0.0193578 0.0899546 3.63248
+  translation 2.81064 0.0899546 2.06248
   controller "<extern>"
   bodySlot [
     Compass {
@@ -353,5 +353,5 @@ Can {
   translation -1.47 0.06 3.42
 }
 Apple {
-  translation -0.01 0.05 2.47
+  translation -1.97 0.05 2.47
 }

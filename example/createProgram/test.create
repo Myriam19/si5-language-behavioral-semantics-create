@@ -7,7 +7,7 @@ CreateProgram prog1 {
 		},
 		FiniteChoreography rotate {
 			instructions {
-				Rotate 180 degrees//, GoForward 20 cm
+				Rotate -180 degrees //, GoForward 20 cm
 			}
 		},
 		FiniteChoreography test {
@@ -17,7 +17,7 @@ CreateProgram prog1 {
 					conditions {
 						ObjectFound at 50 cm
 					}
-				}/*,
+				},
 				Interruption {
 					choreography rotate
 					conditions {
@@ -29,14 +29,14 @@ CreateProgram prog1 {
 					conditions {
 						ObstacleFoundRight
 					}
-				}*/
+				}
 			}
 			instructions {
 				/*GoForward  16 cm,
 				Rotate 180 degrees,
 				GoForward  16 cm,
 				Rotate 90 degrees*/
-				GoForward  100 cm//, rotate//, Rotate 180 degrees, GoForward  15 cm
+				GoForward  100 cm, rotate//, Rotate 180 degrees, GoForward  15 cm
 			}
 		},
 		
@@ -66,7 +66,6 @@ CreateProgram prog1 {
 			outCondition : ObjectFound at 10 cm
 		}
 	}
-	
-	
-	starting_choreo : test
+
+	starting_choreo : test, test1, loop
 }

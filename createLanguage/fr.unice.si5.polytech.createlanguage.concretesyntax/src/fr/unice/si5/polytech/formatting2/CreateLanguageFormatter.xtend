@@ -23,9 +23,7 @@ class CreateLanguageFormatter extends AbstractFormatter2 {
 
 	def dispatch void format(Interruption interruption, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (condition : interruption.conditions) {
-			condition.format
-		}
+		interruption.condition.format
 	}
 	
 	// TODO: implement for LoopChoreography, FiniteChoreography

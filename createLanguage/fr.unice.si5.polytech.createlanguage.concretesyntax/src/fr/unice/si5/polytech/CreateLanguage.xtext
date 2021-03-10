@@ -22,7 +22,17 @@ Action returns Action:
 	GoForward | GoBackward | Rotate | Stop | GrabInFront | ReleaseInFront | GoToClosestObject;
 
 Condition returns Condition:
+	BooleanEvent | AndCondition | OrCondition
+;
+	
+BooleanEvent returns BooleanEvent:
 	ObjectFound | ObstacleFoundLeft | ObstacleFoundRight | VirtualWallFound;
+	
+AndCondition returns AndCondition:
+	 '(' andConditions+=BooleanEvent ('&&' andConditions+=BooleanEvent)+ ')' ;
+	
+OrCondition returns OrCondition:
+	 '(' orConditions+=BooleanEvent ('||' orConditions+=BooleanEvent)+ ')' ;
 
 Instruction returns Instruction:
 	Choreography | Action | ChoreoToRun;
@@ -32,11 +42,10 @@ EString returns ecore::EString:
 
 Interruption returns Interruption:
 	{Interruption}
-	'Interruption'
-	'{'
-		('choreography' choreography=ReferenceChoreography)
-		('conditions' '{' conditions+=Condition ( "," conditions+=Condition)* '}' )?
-	'}';
+	'Interruption' '(' 
+		'condition' '=' condition=Condition ',' 
+		'choreography' '=' choreography=ReferenceChoreography
+	;
 
 LoopChoreography returns LoopChoreography:
 	{LoopChoreography}
@@ -65,7 +74,7 @@ ReferenceChoreography returns ReferenceChoreography:
 
 ParalleleChoreo returns ParalleleChoreo:
 	{ParalleleChoreo}
-	'(' referenceChoreographies+=ReferenceChoreography '||' referenceChoreographies+=ReferenceChoreography ('||' referenceChoreographies+=ReferenceChoreography)* ')'
+	'parallel' '(' referenceChoreographies+=ReferenceChoreography ',' referenceChoreographies+=ReferenceChoreography (',' referenceChoreographies+=ReferenceChoreography)* ')'
 	
 ; 
 
@@ -125,7 +134,7 @@ GoToClosestObject returns GoToClosestObject:
 ;
 
 Eint returns ecore::EInt:
-	INT;
+	('-')?INT;
 	
 EDouble returns ecore::EDouble:
-	INT('.'INT)?;
+	('-')?INT('.'INT)?;
