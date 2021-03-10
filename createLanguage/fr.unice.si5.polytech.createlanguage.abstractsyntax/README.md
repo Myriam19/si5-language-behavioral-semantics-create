@@ -16,7 +16,7 @@ Une `Action` est une classe qui se decline en plusieurs classes filles correspon
 
 Une `Interruption` est un classe composé d'une condition (condition de declanchement de l'interruption), ainsi que de la référence de la chorégraphie à lancer lorsque l'interruption est levée. Le fait de contenir une ReferenceChoreography au lieu de référencer une chorégraphie est aussi un choix fait par rapport à la syntaxe graphique. Si une même chorégraphie est présente deux fois dans le starting_choreo, les chorégraphies à lancer dans l'interruption sera également dupliquée pour une meilleure lisibilité. Malheureusement, cette fonctionnalité n'a pas été implémentée correctement ce qui fait que la chorégraphie de l'interruption n'apparaît qu'une seule fois même si la chorégraphie contenant l'interruption est bien dupliquée.
 
-Une `Condition` est découpée en trois sous-classes : les `AndConditions` et les `OrConditions` qui représentent plusieurs conditions séparées par un opérateur logique, et des `BooleanEvent`, qui sont les conditions auxquels réagit le robot. 
+Une `Condition` est découpée en trois sous-classes : les `AndConditions` et les `OrConditions` qui représentent plusieurs conditions séparées par un opérateur logique, et des `BooleanEvent`, qui sont les conditions auxquels réagit le robot. Les `AndConditions` et `OrConditions` contiennent des `BooleanEvent`. Nous aurions souhaité qu'elles contiennent des conditions pour laisser plus de liberté au développeur, mais cela a généré des erreurs lors de la génération des artefacts de la syntaxe concrète textuelle.
 
 ### Actions
 
