@@ -43,6 +43,7 @@ Conditions :
 - Obstacle à droite trouvé
 - Obstacle à gauche trouvé
 
+
 ### Evolutions possibles
 
 Il aurait été intéressant de développer d'autres concepts tels que :
@@ -52,4 +53,3 @@ Il aurait été intéressant de développer d'autres concepts tels que :
 - Une action permettant d'aller à une position gps précise
 - Amélioration de l'action permettant d'aller vers l'objet le plus proche
 - Amélioration des chorégraphies parallèle
-
