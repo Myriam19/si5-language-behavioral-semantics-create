@@ -6,12 +6,28 @@
 
 Pour pouvoir mettre en place la notion d'interruption, nous avons décidé de mettre en place un mécanisme de "faux parallélisme", qui permet de pouvoir vérifier les conditions d'interruption de manière fréquente lorsque le robot réalise une action.
 
-Pour cela, nous avons découpé chaque classe (i.e Aspect) en deux méthodes : `start` et `doStep`
-Le start permet d'initialiser les différents états du robot en fonction de l'action à réaliser. De cette manière, nous pouvons stocker, par exemple, l'action courante. Ensuite, la méthode doStep permet pour une action donné, de l'exécuter "pas à pas". De cette manière, chaque action est fragmentée, et nous pouvons vérifier les conditions à chaque réalisation d'une partie de l'action voulue.
-Le mécanisme est le même pour les actions qui nécessitent un temps de réalisation (tourner pendant quelques secondes par exemple), le temps est initialement defini dans le `step` puis à chaque appelle de `doStep` ont décrémente la variable de temps jusqu'à ce qu'elle ateigne zero.
+Pour cela, nous avons ajouté deux méthodes à chaque classe `Instruction` (i.e Aspect) : `start` et `doStep`
+Le start permet d'initialiser les différents états du robot en fonction de l'action à réaliser. De cette manière, nous pouvons stocker, par exemple, l'action courante dans la chorégaphie. Toutes les instructions possède une variable `isRunning` qui passe à true dans le `start`.
+Ensuite, la méthode doStep permet pour une action donnée, de l'exécuter "pas à pas". De cette manière, chaque action est fragmentée, et nous pouvons vérifier les conditions à chaque réalisation d'une partie de l'action voulue. Pour cela, chaque action calcule la durée de l'action à exécuter (à part pour le grab et le release) dans le `start`. Ce temps diminue après chaque `doStep` de 0.32 seconde. Lorsque ce temps est inférieur ou égal à 0, `isRunning` passe à false.
 
+### Choreography
+
+Comme dit précédemment, la chorégraphie récupère sa première instruction, la `start`, et la stock dans une variable currentInstruction. Dans le `doStep`, elle fait une boucle sur les interruptions, vérifie leur condition, et si elle est valide, exécute la chorégraphie de l'interruption. Après avoir vérifié les interruptions, elle fait un `doStep` sur l'instruction courante si elle est en cours, sinon elle passe à la suivante. Arrivée à la dernière instruction, elle passe sa variable `isRunning` à false.
+La `LoopChoreography`, quant à elle, refais un `start` une fois arrivée à la dernière instruction. Elle a également une étape supplémentaire qui est de vérifier sa condition de fin après le `doStep` de l'instruction en cours. Si elle est valide, elle passe `isRunning` à false.
+
+### Conditions
+
+Toutes les conditions ont une variable isValid qui est consultée par l'interruption, et une méthode check permettant de mettre à jour cette variable.
+
+### Main
+
+La méthode main ne fait que boucler sur les `ChoreoToRun` de `starting_choreo`, la `start`, et fait un `doStep` de cette chorégraphie tant qu'elle est en cours.
 
 ## Difficultés rencontrées
+
+### Step du contrôleur
+
+Cette méthode de `doStep` a été assez compliquée à mettre en place. Nous avons fait appel la méthode step du contrôleur qui permet de faire bouger le robot à chaque fin de doStep de chaque action. L'appeler à l'extérieur de ces classes actions ne faisait pas fonctionner correctement notre programme.
 
 ### GoToClosestObject
 
