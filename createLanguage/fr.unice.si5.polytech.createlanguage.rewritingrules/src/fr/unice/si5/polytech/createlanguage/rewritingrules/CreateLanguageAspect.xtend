@@ -666,7 +666,7 @@ class GoToClosestObjectAspect extends ActionAspect{
         return Math.sqrt(_self.sqr(y2 - y1) + _self.sqr(x2 - x1));
     }
     
-    // approche avec 3 points
+    // approche avec 3 points (vectorielle bis)
     /*def double getAngle(double point1X, double point1Y, 
         double point2X, double point2Y, 
         double fixedX, double fixedY) {
@@ -685,8 +685,7 @@ class GoToClosestObjectAspect extends ActionAspect{
     	if (CreateProgramAspect.controler.frontCamera.getCameraRecognitionObjects().length > 0) {
     		System.out.println("Dans le if du gotoclosest object")
     		
-    		// approche GPS
-    		
+    		// approche naive
     		/*val double[] frontObjPos = CreateProgramAspect.controler.frontCamera.getCameraRecognitionObjects().get(0).getPosition();
 			val double[] frontObjOri = CreateProgramAspect.controler.frontCamera.getCameraRecognitionObjects().get(0).getOrientation();
 			
@@ -695,12 +694,10 @@ class GoToClosestObjectAspect extends ActionAspect{
 			
 			CreateProgramAspect.controler.turn(frontObjOri.get(0));
 			
+			//Approche GPS
 			val double[] robotPos =  CreateProgramAspect.controler.getPosition();
 			val distance = _self.distance(robotPos.get(0), robotPos.get(1), frontObjPos.get(0), frontObjPos.get(1));
 			val time = distance / PolyCreateControler.MAX_SPEED;
-			
-			CreateProgramAspect.controler.goForward();
-			CreateProgramAspect.controler.passiveWait(time);
 			
 			val int R = 6371000; // metres
 			val φ1 = lat1 * Math.PI/180; // φ, λ in radians
@@ -716,16 +713,9 @@ class GoToClosestObjectAspect extends ActionAspect{
 			val double dy = lat2 - lat1;
 			val double dx = Math.cos(Math.PI/180*lat1)*(lon2 - lon1);
 			val double angle = Math.atan2(dy, dx);*/
-			
-			
-	    	val double[] frontObjPos = CreateProgramAspect.controler.frontCamera.getCameraRecognitionObjects().get(0).getPosition();
-			val double[] robotPos =  CreateProgramAspect.controler.getPosition();
-			System.out.println("I saw an object on front Camera at : "+ frontObjPos.get(1) +","+ frontObjPos.get(2));
-			System.out.println("My position : "+ robotPos.get(1) +","+ robotPos.get(2));
-			
+						
 			
 			// approche vectorielle 
-			
 			/*
 			val double lat1_1 = robotPos.get(0);
 			val double lon1_1 = robotPos.get(1);
@@ -755,9 +745,13 @@ class GoToClosestObjectAspect extends ActionAspect{
 			objetVect.add(XR);
 			objetVect.add(YR);
 		
-		    // val double angle = _self.getAngle();
 			val double angle = Math.atan2(objetVect.get(1), objetVect.get(0)) - Math.atan2(robotVect.get(1), robotVect.get(0))
 			*/
+			
+			val double[] frontObjPos = CreateProgramAspect.controler.frontCamera.getCameraRecognitionObjects().get(0).getPosition();
+			val double[] robotPos =  CreateProgramAspect.controler.getPosition();
+			System.out.println("I saw an object on front Camera at : "+ frontObjPos.get(1) +","+ frontObjPos.get(2));
+			System.out.println("My position : "+ robotPos.get(1) +","+ robotPos.get(2));
 			
 			val double lat1_1 = robotPos.get(1);
 			val double lon1_1 = robotPos.get(2);
