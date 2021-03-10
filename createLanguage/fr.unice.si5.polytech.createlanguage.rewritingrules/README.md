@@ -2,6 +2,12 @@
 
 ## Organisation du code
 
+Pour pouvoir mettre en place la notion d'interruption, nous avons décidé de mttre un place un mécanisme de "faux parrallélisme", qui permet de pouvoir vérifier les conditions d'interruption de manière fréquente lorsque le robot réalise une action. 
+
+Pour cela, nous avons découpé chaque classe (i.e Aspect) en deux méthodes : `start` et `doStep` 
+Le start permet d'initialiser les differents états du robot en fonction de l'action à réaliser. De cette manière, nous pouvons stocker, par exemple, l'action courante. Ensuite, la méthode doStep permet pour une action donné, de l'executer "pas à pas". De cette manière, chaque action est fragmenté, et nous pouvons vérifier les conditions à chaque réalisation d'une partie de l'action voulue. 
+
+
 ## Difficultés rencontrées
 
 ### GoToClosestObject
