@@ -642,6 +642,10 @@ class VirtualWallFoundAspect extends ConditionAspect{
 
 @Aspect(className = GoToClosestObject)
 class GoToClosestObjectAspect extends ActionAspect{
+	private double travelTime = 0.0;
+	private double angleTime = 0.0;
+	private var Boolean turned = false;
+	private var Boolean wentForward = false;
 	
 	def double sqr(double a) {
         return a*a;
@@ -650,15 +654,29 @@ class GoToClosestObjectAspect extends ActionAspect{
     def double distance(double x1, double y1, double x2, double y2) {
         return Math.sqrt(_self.sqr(y2 - y1) + _self.sqr(x2 - x1));
     }
+    
+    // approche avec 3 points
+    /*def double getAngle(double point1X, double point1Y, 
+        double point2X, double point2Y, 
+        double fixedX, double fixedY) {
 	
-	@OverrideAspectMethod
-	def void doStep(){
-		
-		CreateProgramAspect.controler.stop();
-		CreateProgramAspect.controler.passiveWait(0.5);
-		
-		if (CreateProgramAspect.controler.frontCamera.getCameraRecognitionObjects().length > 0) {
-			/*val double[] frontObjPos = CreateProgramAspect.controler.frontCamera.getCameraRecognitionObjects().get(0).getPosition();
+	    val double angle1 = Math.atan2(point1Y - fixedY, point1X - fixedX);
+	    val double angle2 = Math.atan2(point2Y - fixedY, point2X - fixedX);
+	
+	    return angle1 - angle2; 
+	}*/
+    
+    @OverrideAspectMethod
+    def void start() {
+    	System.out.println("Dans le start du gotoclosest object")
+    	_self.turned(false)
+    	_self.wentForward(false)
+    	if (CreateProgramAspect.controler.frontCamera.getCameraRecognitionObjects().length > 0) {
+    		System.out.println("Dans le if du gotoclosest object")
+    		
+    		// approche GPS
+    		
+    		/*val double[] frontObjPos = CreateProgramAspect.controler.frontCamera.getCameraRecognitionObjects().get(0).getPosition();
 			val double[] frontObjOri = CreateProgramAspect.controler.frontCamera.getCameraRecognitionObjects().get(0).getOrientation();
 			
 			System.out.println("I saw an object on front Camera at : "+ frontObjPos.get(0) +","+ frontObjPos.get(1));
@@ -671,16 +689,7 @@ class GoToClosestObjectAspect extends ActionAspect{
 			val time = distance / PolyCreateControler.MAX_SPEED;
 			
 			CreateProgramAspect.controler.goForward();
-			CreateProgramAspect.controler.passiveWait(time);*/
-			
-			val double[] frontObjPos = CreateProgramAspect.controler.frontCamera.getCameraRecognitionObjects().get(0).getPosition();
-			val double[] robotPos =  CreateProgramAspect.controler.getPosition();
-			
-			val lat1 = robotPos.get(1);
-			val lon1 = robotPos.get(2);
-			
-			val lat2 = frontObjPos.get(1);
-			val lon2 = frontObjPos.get(2);
+			CreateProgramAspect.controler.passiveWait(time);
 			
 			val int R = 6371000; // metres
 			val φ1 = lat1 * Math.PI/180; // φ, λ in radians
@@ -693,19 +702,91 @@ class GoToClosestObjectAspect extends ActionAspect{
 			          Math.sin(Δλ/2) * Math.sin(Δλ/2);
 			val c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 			
-			System.out.println("angle obtenu (rad) : "+ c);
+			val double dy = lat2 - lat1;
+			val double dx = Math.cos(Math.PI/180*lat1)*(lon2 - lon1);
+			val double angle = Math.atan2(dy, dx);*/
 			
-			CreateProgramAspect.controler.turn(c);
 			
-			/*val distance = _self.distance(robotPos.get(0), robotPos.get(1), frontObjPos.get(0), frontObjPos.get(1));
-			val time = distance / PolyCreateControler.MAX_SPEED;
+	    	val double[] frontObjPos = CreateProgramAspect.controler.frontCamera.getCameraRecognitionObjects().get(0).getPosition();
+			val double[] robotPos =  CreateProgramAspect.controler.getPosition();
+			System.out.println("I saw an object on front Camera at : "+ frontObjPos.get(1) +","+ frontObjPos.get(2));
+			System.out.println("My position : "+ robotPos.get(1) +","+ robotPos.get(2));
+			
+			
+			// approche vectorielle 
+			
+			/*
+			val double lat1_1 = robotPos.get(0);
+			val double lon1_1 = robotPos.get(1);
+			
+			val double lat2 = frontObjPos.get(0);
+			val double lon2 = frontObjPos.get(1);
 			
 			CreateProgramAspect.controler.goForward();
-			CreateProgramAspect.controler.passiveWait(time);*/
+			CreateProgramAspect.controler.passiveWait(1);
+			
+			val double[] robotPos2 =  CreateProgramAspect.controler.getPosition();
+			
+			val double lat1_2 = robotPos2.get(0);
+			val double lon1_2 = robotPos2.get(1);
+			
+			val double xX = lat1_2 - lat1_1
+			val double yY = lon1_2 - lon1_1
+			
+			val ArrayList<Double> robotVect = new ArrayList()
+			robotVect.add(xX);
+			robotVect.add(yY);
+			
+			val double XR = lat2 - lat1_2
+			val double YR = lon2 - lon1_2
+			
+			val ArrayList<Double> objetVect = new ArrayList()
+			objetVect.add(XR);
+			objetVect.add(YR);
+		
+		    // val double angle = _self.getAngle();
+			val double angle = Math.atan2(objetVect.get(1), objetVect.get(0)) - Math.atan2(robotVect.get(1), robotVect.get(0))
+			*/
+			
+			val double lat1_1 = robotPos.get(1);
+			val double lon1_1 = robotPos.get(2);
+			
+			val double lat2 = frontObjPos.get(1);
+			val double lon2 = frontObjPos.get(2);
+			
+			val double dy = lat2 - lat1_1;
+			val double dx = Math.cos(Math.PI/180*lat1_1)*(lon2 - lon1_1);
+			val double angle = Math.atan2(dy, dx);
+			
+			System.out.println("angle obtenu (rad) : "+ angle);
+			
+			val degreeAngle = angle * 180/Math.PI
+			System.out.println("angle obtenu (deg) : "+ ((degreeAngle+360+180) % 360));
+			_self.angleTime = (((degreeAngle+360+180) % 360) / (PolyCreateControler.HALF_SPEED*12.1));
+			
+			val distance = _self.distance(lat1_1, lon1_1, lat2, lon2);
+			val time = distance / PolyCreateControler.MAX_SPEED;
+			_self.travelTime = time;
+	
+			_self.isRunning(true);
 		}
 		
+			
+    }
+    
+	
+	@OverrideAspectMethod
+	def void doStep(){
+		//System.out.println("dans le doStep du gotoClosestObject")
 		
-		CreateProgramAspect.controler.flushIRReceiver();
-		CreateProgramAspect.controler.step(CreateProgramAspect.controler.timestep);
+		if(!_self.turned){
+			System.out.println("angleTime : " + _self.angleTime)
+			CreateProgramAspect.controler.turnDuringCertainTime(_self.angleTime, true);
+			_self.turned(true)
+		} else if(!_self.wentForward){
+			CreateProgramAspect.controler.goForward();
+			CreateProgramAspect.controler.passiveWait(_self.travelTime);
+			_self.wentForward(true)
+		}
 	}
 }
