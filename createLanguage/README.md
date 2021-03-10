@@ -13,7 +13,7 @@ Ce dossier contient l'ensemble des modules necessaires au fonctionnement du robo
 - start Gemoc in a new workspace and import all the `fr.unice.si5.polytech.createlanguage.*` projects as existing project (import -> project -> general -> existing project in the workspace). 
 - open the Ecore model (`fr.unice.si5.polytech.createlanguage.abstractsyntax/model/createlanguage.ecore`) and then right click -> generate -> all. 
 - open the xtext file (`fr.unice.si5.polytech.createlanguage.concretesyntax/src/fr/unice/polytech/si5/CreateLanguage.xtext`) and then right click -> run as -> generate Xtext artefacts
-- run a new eclipse application, create a project and put a `.create` file in it... You can also import the content of `exemple/createProgram` folder to run the demos files
+- run a new eclipse application. In the workspace data location, put the workspace of the `example` floder (next to `createLanguage`). In the modeling workbench, import the content of `exemple/createProgram` folder to run the demos.
 - launch Webots software
 - create a new configuration based on `Executable model with GEMOC Java engine`
 - run the .create file with this configuration
